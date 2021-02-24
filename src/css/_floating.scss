@@ -1,0 +1,56 @@
+$sizes: ("large" 5rem 1.55rem 1.25rem, "normal" 4rem 1.25rem 1rem, "small" 3rem 0.95rem 0.75rem);
+
+.floating {
+  display: flex;
+  height: 4rem;
+  position: relative;
+  transition: 0.3s;
+
+  @each $key, $size, $padding, $font in $sizes {
+    &__#{$key} {
+      height: $size;
+
+      & > input {
+        @extend .input__#{$key};
+
+        &:focus,
+        &:not(:placeholder-shown) {
+          padding-top: calc(#{$size} / 2) !important;
+
+          & ~ label {
+            transform: scale(0.85) translateY(-#{$font}) translateX(0.2rem) !important;
+          }
+        }
+      }
+
+      & > label {
+        font-size: $font !important;
+        padding: $padding calc(#{$padding} - 0.25rem) !important;
+      }
+    }
+  }
+
+  & > input {
+    &::placeholder {
+      opacity: 0;
+    }
+
+    &:focus,
+    &:not(:placeholder-shown) {
+      padding-top: 1.5rem;
+
+      & ~ label {
+        opacity: 0.85;
+        transform: scale(0.85) translateY(-1rem) translateX(0.2rem);
+      }
+    }
+  }
+
+  & > label {
+    font-size: 1rem;
+    padding: 1.25rem 1rem;
+    pointer-events: none;
+    position: absolute;
+    transition: 0.3s;
+  }
+}
