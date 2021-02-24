@@ -1,0 +1,20 @@
+@use 'variables' as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+}
+
+@import "alert";
+@import "button";
+@import "card";
+@import "floating";
+@import "input";
+@import "radio";
+@import "switch";
