@@ -1,0 +1,45 @@
+.check {
+  &__inline {
+    align-items: center;
+    display: inline-flex;
+    margin-right: 0.75rem;
+    padding-left: 1.25rem;
+    position: relative;
+    margin-bottom: 0.125rem;
+  }
+
+  &__input {
+    height: 1rem;
+    margin-left: 0;
+    margin-right: 0.5rem;
+    margin-top: 0;
+    position: static;
+    width: 1rem;
+
+    &[type="checkbox"],
+    &[type="radio"] {
+      appearance: none;
+      border: 1px solid #bfbfbf;
+      outline: none;
+      transition: background-color 0.3s;
+
+      &:checked {
+        background: #999;
+        border-color: #999;
+      }
+    }
+
+    &[type="radio"] {
+      border-radius: 50%;
+    }
+
+    &[type="checkbox"] {
+      border-radius: 4px;
+    }
+  }
+
+  &__label {
+    display: inline-block;
+    margin-bottom: 0;
+  }
+}
