@@ -11,6 +11,7 @@ $sizes: ("large" 5rem 1.55rem 1.25rem, "normal" 4rem 1.25rem 1rem, "small" 3rem 
       height: $size;
 
       & > input {
+        height: auto !important;
         @extend .input__#{$key};
 
         &:focus,
@@ -30,7 +31,7 @@ $sizes: ("large" 5rem 1.55rem 1.25rem, "normal" 4rem 1.25rem 1rem, "small" 3rem 
     }
   }
 
-  & > input {
+  input {
     &::placeholder {
       opacity: 0;
     }
