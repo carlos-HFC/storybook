@@ -11,10 +11,15 @@ body {
   line-height: 1.5;
 }
 
+div {
+  position: relative;
+}
+
 @import "alert";
 @import "button";
 @import "card";
 @import "floating";
+@import "formControl";
 @import "input";
 @import "radio";
 @import "switch";
