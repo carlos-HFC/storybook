@@ -1,8 +1,4 @@
-$sizes: (
-  large: 1rem,
-  normal: 0.75rem,
-  small: 0.5rem,
-);
+$sizes: (large 1rem 3.125rem, normal 0.75rem 2.375rem, small 0.5rem 1.625rem);
 
 .input {
   appearance: none;
@@ -12,11 +8,38 @@ $sizes: (
   color: map-get($colors, dark);
   font-size: 1rem;
   font-weight: 400;
+  height: 2.5rem;
   line-height: 1.5;
-  padding: calc(0.75rem / 2) .75rem;
+  padding: calc(0.75rem / 2) 0.75rem;
   position: relative;
   transition: 0.2s;
   width: 100%;
+
+  &__group {
+    display: flex;
+
+    .input {
+      border-bottom-right-radius: 0;
+      border-top-right-radius: 0;
+
+      & ~ button {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0.25rem;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0.25rem;
+      }
+    }
+
+    button {
+      @extend .btn;
+      align-items: center;
+      background: #e9ecef;
+      border: 0;
+      display: flex;
+      justify-content: center;
+      padding: 0.375rem 0.75rem;
+    }
+  }
 
   &:focus {
     color: map-get($colors, dark);
@@ -28,49 +51,9 @@ $sizes: (
       width: 100%;
     }
 
-    &[type="password"] ~ .input__bd {
+    &.password ~ .input__bd {
       transition: width 0.4s;
-      width: calc(100% - 2px);
-    }
-  }
-
-  $side: ("l", "r");
-
-  @each $key in $side {
-    &__#{$key} {
-      &__button {
-        @if $key == "l" {
-          justify-content: flex-start;
-          left: 0;
-        } @else {
-          justify-content: flex-end;
-          right: 0;
-        }
-        display: flex;
-        height: 100%;
-        position: absolute;
-
-        button {
-          @extend .btn;
-          align-items: center;
-          border: 0;
-          background: #e9ecef;
-          display: flex;
-          justify-content: center;
-          padding: 0.375rem 0.75rem;
-          @if $key == "l" {
-            border-bottom-left-radius: 0.25rem;
-            border-bottom-right-radius: 0;
-            border-top-left-radius: 0.25rem;
-            border-top-right-radius: 0;
-          } @else {
-            border-bottom-left-radius: 0;
-            border-bottom-right-radius: 0.25rem;
-            border-top-left-radius: 0;
-            border-top-right-radius: 0.25rem;
-          }
-        }
-      }
+      width: calc(100% - 38px);
     }
   }
 
@@ -86,17 +69,20 @@ $sizes: (
   }
 }
 
-@each $key, $size in $sizes {
+@each $key, $size, $width in $sizes {
   .input__#{$key} {
     font-size: $size + 0.25rem;
+    height: calc(#{$size + 0.25rem} * 2.5);
     padding: calc(#{$size} / 2) $size;
 
-    & ~ .input__r__button,
-    & ~ .input__l__button {
-      button {
-        font-size: calc(#{$size + 0.25rem} - 2px);
-        padding: calc(#{$size} / 2) $size;
-      }
+    &.password:focus ~ .input__bd {
+      transition: width 0.4s;
+      width: calc(100% - #{$width});
+    }
+
+    & ~ button {
+      font-size: calc(#{$size + 0.25rem} - 2px);
+      padding: calc(#{$size} / 2) $size;
     }
   }
 }
