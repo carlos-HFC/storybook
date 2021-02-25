@@ -1,10 +1,10 @@
-import { InputHTMLAttributes, ButtonHTMLAttributes, HTMLAttributes } from "react"
+import { InputHTMLAttributes, ButtonHTMLAttributes, HTMLAttributes, ReactNode } from "react"
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "primary" | "secondary" | "warning" | "success" | "purple" | "danger" | "navy" |
   "outline-primary" | "outline-secondary" | "outline-warning" | "outline-success" | "outline-purple" | "outline-danger" | "outline-navy"
   size?: 'small' | 'medium' | 'large'
-  label: React.ReactNode
+  label: ReactNode
   width?: "auto" | "block"
 }
 
@@ -18,7 +18,7 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 export interface RadioProps extends InputHTMLAttributes<HTMLInputElement> {
   id: string
   name: string
-  label: React.ReactNode
+  label: ReactNode
   type?: 'radio' | 'checkbox'
 }
 
@@ -30,6 +30,10 @@ export interface AlertProps {
   variant?: "primary" | "secondary" | "warning" | "success" | "purple" | "danger" | "navy"
 }
 
-export interface FloatingProps extends InputProps {
+export interface FloatingProps extends Omit<InputProps, 'password'> {
+  label: string
+}
+
+export interface FormControlProps extends InputProps {
   label: string
 }
