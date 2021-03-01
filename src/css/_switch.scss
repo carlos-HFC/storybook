@@ -6,6 +6,7 @@
 
   &__slider {
     background: #fff;
+    border: 1px solid #aaa;
     border-radius: 30px;
     bottom: 0;
     cursor: pointer;
@@ -14,10 +15,10 @@
     right: 0;
     top: 0;
     transition: 0.2s;
-    border: 1px solid #222;
 
     &::before {
-      background: #aaa;
+      background: #f7f7f7;
+      border: 1px solid #aaa;
       border-radius: 50%;
       bottom: -5px;
       content: "";
@@ -36,6 +37,7 @@
 
     &:checked + .switch__slider {
       background: #000;
+      border: 1px solid #000;
 
       &::before {
         transform: translateX(35px);
