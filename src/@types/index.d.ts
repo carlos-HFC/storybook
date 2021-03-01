@@ -1,15 +1,17 @@
-import { InputHTMLAttributes, ButtonHTMLAttributes, HTMLAttributes, ReactNode } from "react"
+import { InputHTMLAttributes, ButtonHTMLAttributes, HTMLAttributes, ReactNode, SelectHTMLAttributes } from "react"
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "primary" | "secondary" | "warning" | "success" | "purple" | "danger" | "navy" |
-  "outline-primary" | "outline-secondary" | "outline-warning" | "outline-success" | "outline-purple" | "outline-danger" | "outline-navy"
+  variant?: "primary" | "secondary" | "success" | "danger" | "warning" | "purple" | "navy" |
+  "outline-primary" | "outline-secondary" | "outline-success" | "outline-danger" | "outline-warning" | "outline-purple" | "outline-navy"
   size?: 'small' | 'medium' | 'large'
   label: ReactNode
   width?: "auto" | "block"
 }
 
 export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-  size?: 'small' | 'normal' | 'large'
+  variant?: 'small' | 'normal' | 'large'
+  validation?: 'valid' | 'invalid' | null
+  validationText?: ReactNode
   subline?: boolean
   password?: boolean
   type?: 'text' | 'password' | 'email' | 'url' | 'date' | 'datetime-local' | 'time' | 'week' | 'tel' | 'search' | 'month' | 'number'
@@ -20,6 +22,8 @@ export interface RadioProps extends InputHTMLAttributes<HTMLInputElement> {
   name: string
   label: ReactNode
   type?: 'radio' | 'checkbox'
+  validation?: 'valid' | 'invalid' | null
+  validationText?: ReactNode
 }
 
 export interface SwitchProps {
@@ -27,13 +31,20 @@ export interface SwitchProps {
 }
 
 export interface AlertProps {
-  variant?: "primary" | "secondary" | "warning" | "success" | "purple" | "danger" | "navy"
+  variant?: "primary" | "secondary" | "success" | "danger" | "warning" | "purple" | "navy"
 }
 
 export interface FloatingProps extends Omit<InputProps, 'password'> {
   label: string
 }
 
-export interface FormControlProps extends InputProps {
+export interface FormControlProps extends InputProps, SelectProps {
   label: string
+  select?: boolean
+}
+
+export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
+  variant?: 'small' | 'normal' | 'large'
+  validation?: 'valid' | 'invalid' | null
+  validationText?: ReactNode
 }
