@@ -28,11 +28,13 @@ export const Floatings = () => (
 export const Default = Template.bind({});
 Default.args = {
   label: "E-mail",
+  type: "email",
 };
 
 export const Subline = Template.bind({});
 Subline.args = {
   label: "E-mail",
+  type: "email",
   subline: true
 };
 Subline.argTypes = {

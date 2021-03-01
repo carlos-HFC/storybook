@@ -33,8 +33,8 @@ Radio.args = {
 
 export const Checkbox = Template.bind({});
 Checkbox.args = {
-  id: "Radio1",
-  name: "Radio1",
+  id: "Checkbox1",
+  name: "Checkbox1",
   label: "Checkbox Button",
   type: 'checkbox'
 };

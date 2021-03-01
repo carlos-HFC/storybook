@@ -1,9 +1,13 @@
 $sizes: (large 1rem 3.125rem, normal 0.75rem 2.375rem, small 0.5rem 1.625rem);
+$validation: (
+  valid: map-get($colors, success),
+  invalid: map-get($colors, danger),
+);
 
 .input {
   appearance: none;
-  background: #cdcdcd;
-  border: 0;
+  background: #f1f1f1;
+  border: 1.5px solid #f1f1f1;
   border-radius: 0.25rem;
   color: map-get($colors, dark);
   font-size: 1rem;
@@ -12,7 +16,7 @@ $sizes: (large 1rem 3.125rem, normal 0.75rem 2.375rem, small 0.5rem 1.625rem);
   line-height: 1.5;
   padding: calc(0.75rem / 2) 0.75rem;
   position: relative;
-  transition: 0.2s;
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
   width: 100%;
 
   &__group {
@@ -42,6 +46,7 @@ $sizes: (large 1rem 3.125rem, normal 0.75rem 2.375rem, small 0.5rem 1.625rem);
   }
 
   &:focus {
+    box-shadow: 0 0 0 3px lighten(#555, 40);
     color: map-get($colors, dark);
     outline: 0;
     transition: 0.2s;
@@ -59,7 +64,7 @@ $sizes: (large 1rem 3.125rem, normal 0.75rem 2.375rem, small 0.5rem 1.625rem);
 
   &__bd {
     background: map-get($colors, primary);
-    bottom: 0;
+    bottom: -1.5px;
     content: "";
     height: 3px;
     left: 0;
@@ -83,6 +88,24 @@ $sizes: (large 1rem 3.125rem, normal 0.75rem 2.375rem, small 0.5rem 1.625rem);
     & ~ button {
       font-size: calc(#{$size + 0.25rem} - 2px);
       padding: calc(#{$size} / 2) $size;
+    }
+  }
+}
+
+@each $key, $valid in $validation {
+  .#{$key}__text {
+    color: $valid;
+    font-size: 0.85rem;
+    font-weight: 600;
+    width: 100%;
+  }
+
+  .input.#{$key},
+  .input.password.#{$key} {
+    border-color: $valid;
+
+    &:focus {
+      box-shadow: 0 0 0 3px lighten($valid, 40);
     }
   }
 }

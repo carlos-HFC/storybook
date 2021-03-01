@@ -1,32 +1,32 @@
+$validation: (
+  valid: map-get($colors, success),
+  invalid: map-get($colors, danger),
+);
+
 .check {
   &__inline {
     align-items: center;
     display: inline-flex;
     margin-right: 0.75rem;
-    padding-left: 1.25rem;
     position: relative;
     margin-bottom: 0.125rem;
   }
 
   &__input {
+    appearance: none;
+    border: 1px solid #bfbfbf;
     height: 1rem;
     margin-left: 0;
     margin-right: 0.5rem;
     margin-top: 0;
+    outline: none;
     position: static;
+    transition: background-color 0.3s;
     width: 1rem;
 
-    &[type="checkbox"],
-    &[type="radio"] {
-      appearance: none;
-      border: 1px solid #bfbfbf;
-      outline: none;
-      transition: background-color 0.3s;
-
-      &:checked {
-        background: #999;
-        border-color: #999;
-      }
+    &:checked {
+      background: #999;
+      border-color: #999;
     }
 
     &[type="radio"] {
@@ -41,5 +41,30 @@
   &__label {
     display: inline-block;
     margin-bottom: 0;
+  }
+}
+
+@each $key, $valid in $validation {
+  .#{$key}__text {
+    color: $valid;
+    font-size: 0.85rem;
+    font-weight: 600;
+    width: 100%;
+  }
+
+  .check__input.#{$key} {
+    border-color: $valid !important;
+
+    & ~ .check__label {
+      color: $valid;
+    }
+
+    &:checked {
+      background: lighten($valid, 10) !important;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 3px lighten($valid, 40);
+    }
   }
 }

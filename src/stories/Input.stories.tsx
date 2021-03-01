@@ -21,28 +21,28 @@ export default {
     placeholder: {
       control: false
     },
-  }
+  },
 } as Meta;
 
-const Template: Story<T.InputProps> = (args) => <div style={{ width: "50%", marginBottom: "1rem" }}><Input placeholder={`Input ${args.size}`} {...args} /></div>
+const Template: Story<T.InputProps> = (args) => <div style={{ width: "50%", marginBottom: "1rem" }}><Input placeholder={`Input ${args.variant}`} {...args} /></div>
 
 export const Inputs = () => (
   <>
-    <Template size="normal" />
-    <Template size="normal" subline />
-    <Template size="normal" password />
+    <Template variant="normal" />
+    <Template variant="normal" subline />
+    <Template variant="normal" password />
   </>
 )
 
 export const Default = Template.bind({});
 Default.args = {
-  size: 'normal',
+  variant: 'normal',
   placeholder: 'Input placeholder'
 };
 
 export const Subline = Template.bind({})
 Subline.args = {
-  size: 'normal',
+  variant: 'normal',
   subline: true,
   placeholder: 'Input placeholder'
 };
@@ -52,10 +52,17 @@ Subline.argTypes = {
 
 export const Password = Template.bind({});
 Password.args = {
-  size: 'normal',
+  variant: 'normal',
   password: true,
   placeholder: 'Input placeholder'
 };
 Password.argTypes = {
   password: { control: false }
 }
+
+export const Validation = Template.bind({});
+Validation.args = {
+  variant: 'normal',
+  validation: 'valid',
+  placeholder: 'Input placeholder'
+};
