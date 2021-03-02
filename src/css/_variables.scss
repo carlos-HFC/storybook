@@ -8,3 +8,78 @@ $colors: (
   success: #1d6f42,
   warning: #fc3,
 );
+
+$validation: (
+  valid: map-get($colors, success),
+  invalid: map-get($colors, danger),
+);
+
+$radius: (4, 5, 8, 12, 15, 16, 18, 20, 24, 25, 30, 50);
+
+@function convertRemInPx($value) {
+  @return $value * 16 * 1px;
+}
+
+@function convertPxInRem($value) {
+  @return $value / 16 * 1rem;
+}
+
+@each $key, $valid in $validation {
+  .#{$key}__text {
+    color: $valid;
+    font-size: 0.85rem;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-top: 1px;
+    width: 100%;
+  }
+
+  .#{$key} {
+    border-color: $valid !important;
+
+    &:focus {
+      box-shadow: 0 0 0 3px lighten($valid, 45) !important;
+    }
+  }
+}
+
+@each $i in $radius {
+  .radius__#{$i} {
+    @if $i == 50 {
+      border-radius: $i * 1%;
+    } @else {
+      border-radius: convertPxInRem($i);
+    }
+  }
+}
+
+%input {
+  @extend .radius__4;
+  appearance: none;
+  background-color: #f7f7f7;
+  border: 1.5px solid #f1f1f1;
+  color: map-get($colors, dark);
+  font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  padding: calc(0.75rem / 2) 0.75rem;
+  position: relative;
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, 0.3s;
+  width: 100%;
+
+  &[type="search"] {
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-search' viewBox='0 0 16 16'><path d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'/></svg>");
+    background-position: left 0.6rem center;
+    background-repeat: no-repeat;
+    background-size: 1rem;
+    padding-left: 2.25rem;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 3px #ddd;
+    color: map-get($colors, dark);
+    outline: 0;
+    transition: 0.2s;
+  }
+}
