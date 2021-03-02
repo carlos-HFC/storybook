@@ -23,12 +23,28 @@ export default {
 
 const Template: Story<T.RadioProps> = (args) => <C.RadioButton {...args} />
 
+export const Radios = () => (
+  <>
+    <Template id="Radio1" name="Radio" label="Radio Button" radio />
+    <Template id="Radio2" name="Radio" label="Radio Button" radio />
+    <Template id="Radio3" name="Radio" label="Radio Button" radio />
+  </>
+)
+
+export const Checkboxs = () => (
+  <>
+    <Template id="Checkbox1" name="Checkbox" label="Checkbox Button" checkbox />
+    <Template id="Checkbox2" name="Checkbox" label="Checkbox Button" checkbox />
+    <Template id="Checkbox3" name="Checkbox" label="Checkbox Button" checkbox />
+  </>
+)
+
 export const Radio = Template.bind({});
 Radio.args = {
   id: "Radio1",
   name: "Radio1",
   label: "Radio Button",
-  type: 'radio'
+  radio: true
 };
 
 export const Checkbox = Template.bind({});
@@ -36,5 +52,5 @@ Checkbox.args = {
   id: "Checkbox1",
   name: "Checkbox1",
   label: "Checkbox Button",
-  type: 'checkbox'
+  checkbox: true,
 };
