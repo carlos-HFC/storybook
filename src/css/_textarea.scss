@@ -1,0 +1,19 @@
+$sizes: (
+  large: 1rem,
+  normal: 0.75rem,
+  small: 0.5rem,
+);
+
+.textarea {
+  @extend %input;
+  min-height: 5rem;
+  resize: vertical;
+}
+
+@each $key, $size in $sizes {
+  .textarea__#{$key} {
+    font-size: $size + 0.25rem;
+    min-height: calc(#{$size} * 6 + 1rem);
+    padding: calc(#{$size} / 2) $size;
+  }
+}
