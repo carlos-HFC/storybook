@@ -1,7 +1,7 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import { FormControl, Select } from '../components'
+import { FormControl } from '../components'
 import * as T from '../@types'
 
 import '../css/styles.min.css'
@@ -26,8 +26,9 @@ const Template: Story<T.FormControlProps> = (args) => <div style={{ width: "50%"
 export const Controls = () => (
   <>
     <Template label="Nome" />
-    <Template label="E-mail" type="email" />
     <Template label="Password" type="password" password />
+    <Template label="Select" select />
+    <Template label="Textarea" textarea />
   </>
 )
 
@@ -36,26 +37,17 @@ Default.args = {
   label: "E-mail"
 };
 
-export const ControlSubline = Template.bind({});
-ControlSubline.args = {
-  label: "E-mail",
-  subline: true
-};
-ControlSubline.argTypes = {
-  subline: { control: false },
-}
-
 export const ControlSelect = Template.bind({});
 ControlSelect.args = {
   label: "Select",
   select: true,
   children: (
     <>
-      <Select.Option value="1">One</Select.Option>
-      <Select.Option value="2">Two</Select.Option>
-      <Select.Option value="3">Three</Select.Option>
-      <Select.Option value="4">Four</Select.Option>
-      <Select.Option value="5">Five</Select.Option>
+      <option value="1">One</option>
+      <option value="2">Two</option>
+      <option value="3">Three</option>
+      <option value="4">Four</option>
+      <option value="5">Five</option>
     </>
   )
 };
@@ -70,14 +62,20 @@ ControlMultipleSelect.args = {
   multiple: true,
   children: (
     <>
-      <Select.Option value="1">One</Select.Option>
-      <Select.Option value="2">Two</Select.Option>
-      <Select.Option value="3">Three</Select.Option>
-      <Select.Option value="4">Four</Select.Option>
-      <Select.Option value="5">Five</Select.Option>
+      <option value="1">One</option>
+      <option value="2">Two</option>
+      <option value="3">Three</option>
+      <option value="4">Four</option>
+      <option value="5">Five</option>
     </>
   )
 };
 ControlMultipleSelect.argTypes = {
   children: { control: false }
 }
+
+export const ControlTextarea = Template.bind({});
+ControlTextarea.args = {
+  label: "Textarea",
+  textarea: true,
+};

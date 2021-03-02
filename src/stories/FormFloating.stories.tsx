@@ -20,8 +20,9 @@ const Template: Story<T.FloatingProps> = (args) => <div style={{ width: "50%", m
 
 export const Floatings = () => (
   <>
-    <Template label="Input" />
-    <Template label="Input (com subline)" subline />
+    <Template label="Input small" variant="small" />
+    <Template label="Input normal" variant="normal" />
+    <Template label="Input large" variant="large" />
   </>
 )
 
@@ -30,13 +31,3 @@ Default.args = {
   label: "E-mail",
   type: "email",
 };
-
-export const Subline = Template.bind({});
-Subline.args = {
-  label: "E-mail",
-  type: "email",
-  subline: true
-};
-Subline.argTypes = {
-  subline: { control: false }
-}

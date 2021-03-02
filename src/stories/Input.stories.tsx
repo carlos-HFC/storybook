@@ -15,9 +15,6 @@ export default {
     }
   },
   argTypes: {
-    type: {
-      control: false
-    },
     placeholder: {
       control: false
     },
@@ -28,9 +25,9 @@ const Template: Story<T.InputProps> = (args) => <div style={{ width: "50%", marg
 
 export const Inputs = () => (
   <>
+    <Template variant="small" />
     <Template variant="normal" />
-    <Template variant="normal" subline />
-    <Template variant="normal" password />
+    <Template variant="large" />
   </>
 )
 
@@ -39,16 +36,6 @@ Default.args = {
   variant: 'normal',
   placeholder: 'Input placeholder'
 };
-
-export const Subline = Template.bind({})
-Subline.args = {
-  variant: 'normal',
-  subline: true,
-  placeholder: 'Input placeholder'
-};
-Subline.argTypes = {
-  subline: { control: false }
-}
 
 export const Password = Template.bind({});
 Password.args = {
