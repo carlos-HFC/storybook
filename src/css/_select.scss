@@ -1,27 +1,12 @@
 $sizes: (large 1rem 3.125rem, normal 0.75rem 2.375rem, small 0.5rem 1.625rem);
-$validation: (
-  valid: map-get($colors, success),
-  invalid: map-get($colors, danger),
-);
 
 .select {
-  appearance: none;
-  background-color: #f1f1f1;
+  @extend %input;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
   background-repeat: no-repeat;
   background-position: right 0.75rem center;
   background-size: 16px 12px;
-  border: 1.5px solid #f1f1f1;
-  border-radius: 0.25rem;
-  color: map-get($colors, dark);
-  font-size: 1rem;
-  font-weight: 400;
   height: 2.5rem;
-  line-height: 1.5;
-  padding: calc(0.75rem / 2) 0.75rem;
-  position: relative;
-  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-  width: 100%;
 
   &[multiple],
   &[size]:not([size="1"]) {
@@ -30,15 +15,8 @@ $validation: (
     padding-right: 2rem;
 
     option {
-      background: #f1f1f1;
+      background: #f9f9f9;
     }
-  }
-
-  &:focus {
-    box-shadow: 0 0 0 3px lighten(#555, 40);
-    color: map-get($colors, dark);
-    outline: 0;
-    transition: 0.2s;
   }
 
   @each $key, $size, $width in $sizes {
@@ -46,16 +24,6 @@ $validation: (
       font-size: $size + 0.25rem;
       height: calc(#{$size + 0.25rem} * 2.5);
       padding: calc(#{$size} / 2) $size;
-    }
-  }
-
-  @each $key, $valid in $validation {
-    &.#{$key} {
-      border-color: $valid;
-
-      &:focus {
-        box-shadow: 0 0 0 3px lighten($valid, 40);
-      }
     }
   }
 }

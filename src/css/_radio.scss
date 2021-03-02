@@ -1,8 +1,3 @@
-$validation: (
-  valid: map-get($colors, success),
-  invalid: map-get($colors, danger),
-);
-
 .check {
   &__inline {
     align-items: center;
@@ -29,12 +24,19 @@ $validation: (
       border-color: #999;
     }
 
+    &:focus {
+      box-shadow: 0 0 0 3px lighten(#555, 40);
+      color: map-get($colors, dark);
+      outline: 0;
+      transition: 0.2s;
+    }
+
     &[type="radio"] {
-      border-radius: 50%;
+      @extend .radius__50;
     }
 
     &[type="checkbox"] {
-      border-radius: 4px;
+      @extend .radius__4;
     }
   }
 
@@ -45,16 +47,7 @@ $validation: (
 }
 
 @each $key, $valid in $validation {
-  .#{$key}__text {
-    color: $valid;
-    font-size: 0.85rem;
-    font-weight: 600;
-    width: 100%;
-  }
-
   .check__input.#{$key} {
-    border-color: $valid !important;
-
     & ~ .check__label {
       color: $valid;
     }

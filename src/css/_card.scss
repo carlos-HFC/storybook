@@ -1,7 +1,7 @@
 .card {
+  @extend .radius__4;
   background: #fff;
   border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 0.3rem;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -48,8 +48,8 @@
 
   &__footer {
     background: rgba(0, 0, 0, 0.05);
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 0 0 calc(0.3rem - 1px) calc(0.3rem - 1px);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
     padding: 0.5rem 1rem;
   }
 

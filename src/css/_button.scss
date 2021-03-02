@@ -22,7 +22,7 @@ $sizes: (
 );
 
 .btn {
-  border-radius: 0.5rem;
+  @extend .radius__8;
   cursor: pointer;
   display: inline-block;
   font-weight: 700;

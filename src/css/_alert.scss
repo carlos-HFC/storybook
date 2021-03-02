@@ -1,31 +1,31 @@
 $alert-colors: (
-  "danger" map-get($colors, danger),
-  "navy" map-get($colors, navy),
-  "primary" map-get($colors, primary),
-  "purple" map-get($colors, purple),
-  "secondary" map-get($colors, secondary),
-  "success" map-get($colors, success),
-  "warning" map-get($colors, warning)
+  danger: map-get($colors, danger),
+  navy: map-get($colors, navy),
+  primary: map-get($colors, primary),
+  purple: map-get($colors, purple),
+  secondary: map-get($colors, secondary),
+  success: map-get($colors, success),
+  warning: map-get($colors, warning),
 );
 
 .alert {
-  position: relative;
-  padding: 1.2rem;
+  @extend .radius__8;
   margin-bottom: 1px;
-  border-radius: 0.5rem;
+  padding: 1.2rem;
+  position: relative;
 
   hr {
     background-color: currentColor;
-    color: inherit;
     border: 0;
+    color: inherit;
     height: 1px;
     margin: 1rem 0;
     opacity: 0.25;
   }
 
   &__link {
-    text-decoration: underline;
     font-weight: 700;
+    text-decoration: underline;
   }
 
   &__header {
