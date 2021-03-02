@@ -1,23 +1,11 @@
 $sizes: (large 1rem 3.125rem, normal 0.75rem 2.375rem, small 0.5rem 1.625rem);
-$validation: (
-  valid: map-get($colors, success),
-  invalid: map-get($colors, danger),
-);
 
 .input {
-  appearance: none;
-  background: #f1f1f1;
-  border: 1.5px solid #f1f1f1;
-  border-radius: 0.25rem;
-  color: map-get($colors, dark);
-  font-size: 1rem;
-  font-weight: 400;
-  height: 2.5rem;
-  line-height: 1.5;
-  padding: calc(0.75rem / 2) 0.75rem;
-  position: relative;
-  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-  width: 100%;
+  @extend %input;
+
+  &::-webkit-inner-spin-button {
+    display: none;
+  }
 
   &__group {
     display: flex;
@@ -44,34 +32,6 @@ $validation: (
       padding: 0.375rem 0.75rem;
     }
   }
-
-  &:focus {
-    box-shadow: 0 0 0 3px lighten(#555, 40);
-    color: map-get($colors, dark);
-    outline: 0;
-    transition: 0.2s;
-
-    & ~ .input__bd {
-      transition: width 0.4s;
-      width: 100%;
-    }
-
-    &.password ~ .input__bd {
-      transition: width 0.4s;
-      width: calc(100% - 38px);
-    }
-  }
-
-  &__bd {
-    background: map-get($colors, primary);
-    bottom: -1.5px;
-    content: "";
-    height: 3px;
-    left: 0;
-    position: absolute;
-    transition: width 0.4s;
-    width: 0;
-  }
 }
 
 @each $key, $size, $width in $sizes {
@@ -80,32 +40,14 @@ $validation: (
     height: calc(#{$size + 0.25rem} * 2.5);
     padding: calc(#{$size} / 2) $size;
 
-    &.password:focus ~ .input__bd {
-      transition: width 0.4s;
-      width: calc(100% - #{$width});
+    &[type="search"] {
+      background-size: $size + 0.25rem;
+      padding-left: $size + 1.5;
     }
 
     & ~ button {
       font-size: calc(#{$size + 0.25rem} - 2px);
       padding: calc(#{$size} / 2) $size;
-    }
-  }
-}
-
-@each $key, $valid in $validation {
-  .#{$key}__text {
-    color: $valid;
-    font-size: 0.85rem;
-    font-weight: 600;
-    width: 100%;
-  }
-
-  .input.#{$key},
-  .input.password.#{$key} {
-    border-color: $valid;
-
-    &:focus {
-      box-shadow: 0 0 0 3px lighten($valid, 40);
     }
   }
 }
