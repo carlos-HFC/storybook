@@ -1,4 +1,9 @@
-import { InputHTMLAttributes, ButtonHTMLAttributes, HTMLAttributes, ReactNode, SelectHTMLAttributes } from "react"
+import { InputHTMLAttributes, ButtonHTMLAttributes, HTMLAttributes, ReactNode, SelectHTMLAttributes, TextareaHTMLAttributes, TableHTMLAttributes } from "react"
+
+interface Validation {
+  validation?: 'valid' | 'invalid' | null
+  validationText?: ReactNode
+}
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "primary" | "secondary" | "success" | "danger" | "warning" | "purple" | "navy" |
@@ -8,22 +13,18 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   width?: "auto" | "block"
 }
 
-export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+export interface InputProps extends InputHTMLAttributes<HTMLInputElement>, Validation {
   variant?: 'small' | 'normal' | 'large'
-  validation?: 'valid' | 'invalid' | null
-  validationText?: ReactNode
-  subline?: boolean
   password?: boolean
   type?: 'text' | 'password' | 'email' | 'url' | 'date' | 'datetime-local' | 'time' | 'week' | 'tel' | 'search' | 'month' | 'number'
 }
 
-export interface RadioProps extends InputHTMLAttributes<HTMLInputElement> {
+export interface RadioProps extends InputHTMLAttributes<HTMLInputElement>, Validation {
   id: string
   name: string
   label: ReactNode
-  type?: 'radio' | 'checkbox'
-  validation?: 'valid' | 'invalid' | null
-  validationText?: ReactNode
+  radio?: boolean
+  checkbox?: boolean
 }
 
 export interface SwitchProps {
@@ -41,10 +42,19 @@ export interface FloatingProps extends Omit<InputProps, 'password'> {
 export interface FormControlProps extends InputProps, SelectProps {
   label: string
   select?: boolean
+  textarea?: boolean
 }
 
-export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
+export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement>, Validation {
   variant?: 'small' | 'normal' | 'large'
-  validation?: 'valid' | 'invalid' | null
-  validationText?: ReactNode
+}
+
+export interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement>, Validation {
+  variant?: 'small' | 'normal' | 'large'
+}
+
+export interface TableProps extends TableHTMLAttributes<HTMLTableElement> {
+  variant?: "primary" | "secondary" | "success" | "danger" | "warning" | "purple" | "navy" | "dark"
+  striped?: boolean
+  border?: boolean
 }
