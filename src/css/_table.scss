@@ -1,0 +1,85 @@
+$header-colors: (
+  dark: map-get($colors, dark),
+  light: #fff,
+);
+
+.table {
+  border-collapse: collapse;
+  width: 100%;
+  color: map-get($colors, dark);
+  padding: convertPxInRem(8);
+  border-color: #dee2e6;
+
+  &__striped {
+    tbody tr:nth-child(odd) {
+      background-color: darken(#fff, 5);
+    }
+  }
+
+  tbody,
+  td,
+  tfoot,
+  th,
+  thead,
+  tr {
+    border-color: inherit;
+    border-style: solid;
+    border-width: 0;
+  }
+
+  &__border {
+    tr {
+      border-width: 1px;
+    }
+    td,
+    th {
+      border-width: 0 1px;
+    }
+  }
+
+  @for $i from 1 through 20 {
+    th:first-child:nth-last-child(#{$i}),
+    td:first-child:nth-last-child(#{$i}) {
+      width: calc(100% / #{$i});
+    }
+  }
+
+  td,
+  th {
+    padding: convertPxInRem(8);
+    background: transparent;
+    border-bottom: 1px solid #dee2e6;
+    text-align: -webkit-match-parent;
+  }
+}
+
+@each $key, $color in $colors {
+  .table__#{$key} {
+    background: lighten($color, 20);
+    border-color: lighten($color, 10);
+    @if $key == dark {
+      color: #fff;
+    }
+
+    td,
+    th {
+      border-color: lighten($color, 10);
+    }
+
+    thead {
+      background: lighten($color, 5);
+    }
+    &.table__striped {
+      tbody tr:nth-child(odd) {
+        background-color: lighten($color, 15);
+      }
+    }
+  }
+}
+
+@each $key, $color in $header-colors {
+  .thead__#{$key} {
+    background: darken($color, 10);
+    color: invert(darken($color, 10));
+  }
+}
