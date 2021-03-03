@@ -1,0 +1,38 @@
+.breadcrumb {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin-bottom: 1rem;
+  padding: 0 0;
+
+  span {
+    color: darken(map-get($colors, secondary), 15);
+    padding: 0 0.5rem;
+  }
+
+  &__item {
+    color: darken(map-get($colors, primary), 5);
+    cursor: pointer;
+    text-decoration: underline;
+    text-transform: uppercase;
+    transition: 0.3s;
+
+    & + & {
+      padding-left: 0.5rem;
+    }
+
+    &:hover:not(:last-child) {
+      filter: brightness(0.5);
+      text-decoration: underline;
+      transition: 0.3s;
+    }
+
+    &:last-child {
+      color: darken(map-get($colors, secondary), 15);
+      cursor: auto;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+  }
+}
