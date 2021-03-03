@@ -24,6 +24,20 @@ $radius: (4, 5, 8, 12, 15, 16, 18, 20, 24, 25, 30, 50);
   @return $value / 16 * 1rem;
 }
 
+@each $key, $color in $colors {
+  .text__#{$key} {
+    color: $color !important;
+  }
+
+  .bg__#{$key} {
+    background-color: $color !important;
+  }
+
+  .bd__#{$key} {
+    border-color: $color !important;
+  }
+}
+
 @each $key, $valid in $validation {
   .#{$key}__text {
     color: $valid;
