@@ -1,0 +1,15 @@
+.loader {
+  @extend .radius__50;
+  animation: 1s infinite linear spinner;
+  border: 0.25rem solid map-get($colors, dark);
+  border-right-color: transparent !important;
+  display: inline-block;
+  height: 2rem;
+  width: 2rem;
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
