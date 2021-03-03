@@ -1,4 +1,8 @@
-import { InputHTMLAttributes, ButtonHTMLAttributes, HTMLAttributes, ReactNode, SelectHTMLAttributes, TextareaHTMLAttributes, TableHTMLAttributes } from "react"
+import { InputHTMLAttributes, ButtonHTMLAttributes, HTMLAttributes, ReactNode, SelectHTMLAttributes, TextareaHTMLAttributes, TableHTMLAttributes, ProgressHTMLAttributes, OlHTMLAttributes, CSSProperties } from "react"
+
+type Color = {
+  variant: "primary" | "secondary" | "success" | "danger" | "warning" | "purple" | "navy" | "dark"
+}
 
 interface Validation {
   validation?: 'valid' | 'invalid' | null
@@ -6,8 +10,7 @@ interface Validation {
 }
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "primary" | "secondary" | "success" | "danger" | "warning" | "purple" | "navy" |
-  "outline-primary" | "outline-secondary" | "outline-success" | "outline-danger" | "outline-warning" | "outline-purple" | "outline-navy"
+  variant?: Color['variant'] | "outline-primary" | "outline-secondary" | "outline-success" | "outline-danger" | "outline-warning" | "outline-purple" | "outline-navy"
   size?: 'small' | 'medium' | 'large'
   label: ReactNode
   width?: "auto" | "block"
@@ -31,9 +34,7 @@ export interface SwitchProps {
   onClick?: (event: MouseEvent<HTMLLabelElement, MouseEvent>) => void
 }
 
-export interface AlertProps {
-  variant?: "primary" | "secondary" | "success" | "danger" | "warning" | "purple" | "navy"
-}
+export interface AlertProps extends Color { }
 
 export interface FloatingProps extends Omit<InputProps, 'password'> {
   label: string
@@ -53,8 +54,33 @@ export interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElemen
   variant?: 'small' | 'normal' | 'large'
 }
 
-export interface TableProps extends TableHTMLAttributes<HTMLTableElement> {
-  variant?: "primary" | "secondary" | "success" | "danger" | "warning" | "purple" | "navy" | "dark"
+export interface TableProps extends TableHTMLAttributes<HTMLTableElement>, Color {
   striped?: boolean
   border?: boolean
+}
+
+export interface ListProps extends HTMLAttributes<HTMLUListElement>, Color {
+  borderless?: boolean
+  horizontal?: boolean
+}
+
+export interface ProgressProps extends HTMLAttributes<HTMLDivElement> {
+  width: number
+  animated?: boolean
+  striped?: boolean
+  label?: boolean
+  variant?: Exclude<Color['variant'], 'primary' | 'secondary'>
+}
+
+export interface BreadcrumbProps extends OlHTMLAttributes<HTMLOListElement> {
+  itens: {
+    href: string
+    title: string
+  }[]
+  divider?: string
+}
+
+export interface LoaderProps extends Color {
+  className?: string
+  style?: CSSProperties
 }
