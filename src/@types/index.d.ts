@@ -1,7 +1,7 @@
 import { InputHTMLAttributes, ButtonHTMLAttributes, HTMLAttributes, ReactNode, SelectHTMLAttributes, TextareaHTMLAttributes, TableHTMLAttributes, ProgressHTMLAttributes, OlHTMLAttributes, CSSProperties } from "react"
 
 type Color = {
-  variant: "primary" | "secondary" | "success" | "danger" | "warning" | "purple" | "navy" | "dark"
+  variant?: "primary" | "secondary" | "success" | "danger" | "warning" | "purple" | "navy" | "dark"
 }
 
 interface Validation {
