@@ -1,9 +1,13 @@
 import { ButtonProps } from '../@types'
 
 export const Button: React.FC<ButtonProps> = ({ variant = 'primary', size = 'medium', label, width = 'auto', ...props }) => {
-  const w = width === 'block' ? "100%" : "auto"
+  let classes = 'btn'
+  classes += variant ? ` btn__${variant}` : ''
+  classes += size ? ` btn__${size}` : ''
+  classes += props.className ? ` ${props.className}` : ''
+
   return (
-    <button type="button" className={['btn', `btn__${size}`, `btn__${variant}`, props.className].join(' ')} style={{ width: w }} {...props}>
+    <button type="button" className={classes} style={{ width: width === "block" ? "100%" : "auto" }} {...props}>
       {label}
     </button>
   );

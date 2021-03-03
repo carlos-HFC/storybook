@@ -11,70 +11,97 @@ type TLink = React.FC<AnchorHTMLAttributes<HTMLAnchorElement>>
 export type TCard = React.FC<HTMLAttributes<HTMLDivElement>> & { Header: THeader, Footer: TFooter, Img: TImg, Title: TTitle, Subtitle: TSubtitle, Body: TBody, Link: TLink, Text: TText }
 
 const Header: THeader = ({ ...props }) => {
+  let classes = 'card__header'
+  classes += props.className ? ` ${props.className}` : ''
+
   return (
-    <div className={["card__header", props.className].join(' ')} {...props}>
+    <div className={classes} {...props}>
       {props.children}
     </div>
   )
 }
 
 const Footer: TFooter = ({ ...props }) => {
+  let classes = 'card__footer'
+  classes += props.className ? ` ${props.className}` : ''
+
   return (
-    <div className={["card__footer", props.className].join(' ')} {...props}>
+    <div className={classes} {...props}>
       {props.children}
     </div>
   )
 }
 
 const Body: TBody = ({ ...props }) => {
+  let classes = 'card__body'
+  classes += props.className ? ` ${props.className}` : ''
+
   return (
-    <div className={["card__body", props.className].join(' ')} {...props}>
+    <div className={classes} {...props}>
       {props.children}
     </div>
   )
 }
 
 const Text: TText = ({ ...props }) => {
+  let classes = 'card__text'
+  classes += props.className ? ` ${props.className}` : ''
+
   return (
-    <p className={["card__text", props.className].join(' ')} {...props}>
+    <p className={classes} {...props}>
       {props.children}
     </p>
   )
 }
 
 const Title: TTitle = ({ ...props }) => {
+  let classes = 'card__title'
+  classes += props.className ? ` ${props.className}` : ''
+
   return (
-    <h5 className={["card__title", props.className].join(' ')} {...props}>
+    <h5 className={classes} {...props}>
       {props.children}
     </h5>
   )
 }
 
 const Subtitle: TSubtitle = ({ ...props }) => {
+  let classes = 'card__subtitle'
+  classes += props.className ? ` ${props.className}` : ''
+
   return (
-    <h6 className={["card__subtitle", props.className].join(' ')} {...props}>
+    <h6 className={classes} {...props}>
       {props.children}
     </h6>
   )
 }
 
 const Img: TImg = ({ ...props }) => {
+  let classes = 'card__img'
+  classes += props.className ? ` ${props.className}` : ''
+
   return (
-    <img className={["card__img", props.className].join(' ')} alt={props.alt} {...props} />
+    <img className={classes} alt={props.alt} {...props} />
   )
 }
 
 const Link: TLink = ({ ...props }) => {
+  let classes = 'card__link'
+  classes += props.className ? ` ${props.className}` : ''
+
   return (
-    <a className={["card__link", props.className].join(' ')} {...props}>
+    <a className={classes} {...props}>
       {props.children}
     </a>
   )
 }
 
 const Card: TCard = ({ ...props }) => {
+  let classes = 'card'
+  classes += props.className ? ` ${props.className}` : ''
+
   return (
-    <div className={["card", props.className].join(' ')} {...props}>
+    <div className={classes} {...props}>
       {props.children}
     </div>
   )
