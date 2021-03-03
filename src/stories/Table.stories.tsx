@@ -37,16 +37,16 @@ const Template: Story<T.TableProps> = (args) => (
   </Table>
 )
 
-export const Variants = ({ ...args }) => (
+export const Variants = () => (
   <div style={{ width: "50%" }}>
-    <Table {...args}>
+    <Table>
       <tr>
         <th>DEFAULT</th>
         <th>CELL</th>
       </tr>
     </Table>
     {["primary", "secondary", "success", "danger", "warning", "purple", "navy", "dark"].map(variant => (
-      <Table {...args} variant={variant as T.TableProps['variant']}>
+      <Table key={variant} variant={variant as T.TableProps['variant']}>
         <tr>
           <th>{variant.toUpperCase()}</th>
           <th>CELL</th>

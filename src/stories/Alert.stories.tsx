@@ -14,11 +14,6 @@ export default {
       expanded: true
     }
   },
-  argTypes: {
-    variant: {
-      control: false
-    },
-  }
 } as Meta;
 
 const Template: Story<T.AlertProps> = (args) => (
@@ -37,6 +32,8 @@ const TemplateWithHeader: Story<T.AlertProps> = (args) => (
     </Alert.Body>
   </Alert>
 )
+
+export const Default = Template.bind({})
 
 export const Alerts = ({ ...args }) => {
   return (
