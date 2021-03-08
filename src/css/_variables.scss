@@ -14,8 +14,6 @@ $validation: (
   invalid: map-get($colors, danger),
 );
 
-$radius: (4, 5, 8, 12, 15, 16, 18, 20, 24, 25, 30, 50);
-
 @function convertRemInPx($value) {
   @return $value * 16 * 1px;
 }
@@ -25,16 +23,16 @@ $radius: (4, 5, 8, 12, 15, 16, 18, 20, 24, 25, 30, 50);
 }
 
 @each $key, $color in $colors {
-  .text__#{$key} {
-    color: $color !important;
-  }
-
   .bg__#{$key} {
     background-color: $color !important;
   }
 
   .bd__#{$key} {
     border-color: $color !important;
+  }
+
+  .text__#{$key} {
+    color: $color !important;
   }
 }
 
@@ -57,18 +55,12 @@ $radius: (4, 5, 8, 12, 15, 16, 18, 20, 24, 25, 30, 50);
   }
 }
 
-@each $i in $radius {
-  .radius__#{$i} {
-    @if $i == 50 {
-      border-radius: $i * 1%;
-    } @else {
-      border-radius: convertPxInRem($i);
-    }
-  }
+@mixin radius($value) {
+  border-radius: $value;
 }
 
 %input {
-  @extend .radius__4;
+  @include radius(4px);
   appearance: none;
   background-color: #f7f7f7;
   border: 1.5px solid #f1f1f1;
