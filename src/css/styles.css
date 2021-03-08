@@ -1,7 +1,3 @@
-.text__danger {
-  color: #c0392b !important;
-}
-
 .bg__danger {
   background-color: #c0392b !important;
 }
@@ -10,8 +6,8 @@
   border-color: #c0392b !important;
 }
 
-.text__dark {
-  color: #212529 !important;
+.text__danger {
+  color: #c0392b !important;
 }
 
 .bg__dark {
@@ -22,8 +18,8 @@
   border-color: #212529 !important;
 }
 
-.text__navy {
-  color: #2b7489 !important;
+.text__dark {
+  color: #212529 !important;
 }
 
 .bg__navy {
@@ -34,8 +30,8 @@
   border-color: #2b7489 !important;
 }
 
-.text__primary {
-  color: #2abae4 !important;
+.text__navy {
+  color: #2b7489 !important;
 }
 
 .bg__primary {
@@ -46,8 +42,8 @@
   border-color: #2abae4 !important;
 }
 
-.text__purple {
-  color: #9b59b6 !important;
+.text__primary {
+  color: #2abae4 !important;
 }
 
 .bg__purple {
@@ -58,8 +54,8 @@
   border-color: #9b59b6 !important;
 }
 
-.text__secondary {
-  color: #aaa !important;
+.text__purple {
+  color: #9b59b6 !important;
 }
 
 .bg__secondary {
@@ -70,8 +66,8 @@
   border-color: #aaa !important;
 }
 
-.text__success {
-  color: #1d6f42 !important;
+.text__secondary {
+  color: #aaa !important;
 }
 
 .bg__success {
@@ -82,8 +78,8 @@
   border-color: #1d6f42 !important;
 }
 
-.text__warning {
-  color: #fc3 !important;
+.text__success {
+  color: #1d6f42 !important;
 }
 
 .bg__warning {
@@ -92,6 +88,10 @@
 
 .bd__warning {
   border-color: #fc3 !important;
+}
+
+.text__warning {
+  color: #fc3 !important;
 }
 
 .valid__text {
@@ -128,55 +128,8 @@
           box-shadow: 0 0 0 3px #f7ddda !important;
 }
 
-.radius__4, .card, .floating, .list, .check__input[type=checkbox], .input, .select, .textarea {
-  border-radius: 0.25rem;
-}
-
-.radius__5 {
-  border-radius: 0.3125rem;
-}
-
-.radius__8, .alert, .btn, .input__group button {
-  border-radius: 0.5rem;
-}
-
-.radius__12 {
-  border-radius: 0.75rem;
-}
-
-.radius__15 {
-  border-radius: 0.9375rem;
-}
-
-.radius__16, .progress, .progress__bar {
-  border-radius: 1rem;
-}
-
-.radius__18 {
-  border-radius: 1.125rem;
-}
-
-.radius__20 {
-  border-radius: 1.25rem;
-}
-
-.radius__24 {
-  border-radius: 1.5rem;
-}
-
-.radius__25 {
-  border-radius: 1.5625rem;
-}
-
-.radius__30, .switch__slider {
-  border-radius: 1.875rem;
-}
-
-.radius__50, .loader, .check__input[type=radio], .switch__slider::before {
-  border-radius: 50%;
-}
-
 .input, .select, .textarea {
+  border-radius: 4px;
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
@@ -230,6 +183,7 @@ div {
 }
 
 .alert {
+  border-radius: 8px;
   background: #eaeaea;
   border: 1px solid #d0d0d0;
   color: #212529;
@@ -350,7 +304,7 @@ div {
       flex-wrap: wrap;
   list-style: none;
   margin-bottom: 1rem;
-  padding: 0 0;
+  padding: 0;
 }
 .breadcrumb span {
   color: #848484;
@@ -386,6 +340,7 @@ div {
 }
 
 .btn, .input__group button {
+  border-radius: 8px;
   cursor: pointer;
   display: inline-block;
   font-weight: 700;
@@ -398,6 +353,20 @@ div {
 .btn:disabled, .input__group button:disabled, .btn__disabled {
   opacity: 0.7;
   pointer-events: none;
+}
+.btn__close {
+  border-radius: 4px;
+  background: transparent;
+  border: 0;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 1.25rem;
+  opacity: 0.5;
+  padding: 0.25rem;
 }
 
 .btn__danger {
@@ -745,6 +714,7 @@ div {
 }
 
 .card {
+  border-radius: 4px;
   background: #fff;
   border: 1px solid rgba(0, 0, 0, 0.15);
   display: -webkit-box;
@@ -786,9 +756,9 @@ div {
   margin-bottom: 0;
 }
 .card__header {
+  border-radius: calc(0.3rem - 1px) calc(0.3rem - 1px) 0 0;
   background: rgba(0, 0, 0, 0.05);
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: calc(0.3rem - 1px) calc(0.3rem - 1px) 0 0;
   margin-bottom: 0;
   padding: 1rem;
 }
@@ -807,6 +777,7 @@ div {
 }
 
 .floating {
+  border-radius: 4px;
   background: #f7f7f7;
   border: 1.5px solid #f1f1f1;
   display: -webkit-box;
@@ -1049,15 +1020,15 @@ div {
 }
 
 .floating.valid .input:focus {
+  border: 1.5px solid #1d6f42;
   -webkit-box-shadow: 0 0 0 3px #7bdda7;
           box-shadow: 0 0 0 3px #7bdda7;
-  border: 1.5px solid #1d6f42;
 }
 
 .floating.invalid .input:focus {
+  border: 1.5px solid #c0392b;
   -webkit-box-shadow: 0 0 0 3px #f2c9c5;
           box-shadow: 0 0 0 3px #f2c9c5;
-  border: 1.5px solid #c0392b;
 }
 
 .form__control {
@@ -1200,6 +1171,7 @@ div {
 }
 
 .list {
+  border-radius: 4px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1298,6 +1270,7 @@ div {
 }
 
 .loader {
+  border-radius: 50%;
   -webkit-animation: 1s infinite linear spinner;
           animation: 1s infinite linear spinner;
   border: 0.25rem solid #212529;
@@ -1320,7 +1293,170 @@ div {
             transform: rotate(360deg);
   }
 }
+.modal {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: rgba(0, 0, 0, 0.2);
+  display: none;
+  height: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  left: 0;
+  outline: 0;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+  width: 100%;
+  z-index: 100;
+}
+.modal__dialog {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0.5rem;
+  pointer-events: none;
+  position: relative;
+  width: auto;
+}
+.modal__dialog-centered {
+  min-height: calc(100% - 3rem);
+}
+.modal__dialog-scrollable {
+  height: calc(100% - 3rem);
+}
+@media screen and (min-width: 576px) {
+  .modal__dialog {
+    margin: 1.5rem auto;
+    max-width: 500px;
+  }
+}
+.modal__dialog:not(.fadein) {
+  -webkit-transform: none;
+      -ms-transform: none;
+          transform: none;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  -o-transition: transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+}
+.modal__dialog.fadein {
+  opacity: 0;
+  -webkit-transform: translateY(-200px);
+      -ms-transform: translateY(-200px);
+          transform: translateY(-200px);
+  -webkit-transition: opacity 0.3s;
+  -o-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+.modal__dialog.fadein.modal__dialog-centered {
+  -webkit-transform: translateY(-400px);
+      -ms-transform: translateY(-400px);
+          transform: translateY(-400px);
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  -o-transition: transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+}
+.modal__dialog.fadeout {
+  -webkit-transform: translateY(-200px);
+      -ms-transform: translateY(-200px);
+          transform: translateY(-200px);
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  -o-transition: transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+}
+.modal__dialog.fadeout.modal__dialog-centered {
+  -webkit-transform: translateY(-400px);
+      -ms-transform: translateY(-400px);
+          transform: translateY(-400px);
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  -o-transition: transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+}
+.modal__content {
+  border-radius: 4px;
+  background: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(33, 37, 41, 0.3);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  max-height: 100%;
+  outline: 0;
+  overflow: hidden;
+  pointer-events: all;
+  position: relative;
+  width: 100%;
+}
+.modal__header {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 1px solid rgba(33, 37, 41, 0.2);
+  border-top-left-radius: calc(0.25rem - 1px);
+  border-top-right-radius: calc(0.25rem - 1px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 1rem;
+}
+.modal__title {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+.modal__body {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+  position: relative;
+}
+.modal__footer {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom-left-radius: calc(0.25rem - 1px);
+  border-bottom-right-radius: calc(0.25rem - 1px);
+  border-top: 1px solid rgba(33, 37, 41, 0.2);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  padding: 0.75rem;
+}
+
 .progress {
+  border-radius: 16px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1331,6 +1467,7 @@ div {
   width: 100%;
 }
 .progress__bar {
+  border-radius: 16px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -1427,6 +1564,12 @@ div {
   -o-transition: 0.2s;
   transition: 0.2s;
 }
+.check__input[type=radio] {
+  border-radius: 50%;
+}
+.check__input[type=checkbox] {
+  border-radius: 4px;
+}
 .check__label {
   display: inline-block;
   margin-bottom: 0;
@@ -1492,6 +1635,7 @@ div {
   width: 50px;
 }
 .switch__slider {
+  border-radius: 30px;
   background: #fff;
   border: 1px solid #aaa;
   bottom: 0;
@@ -1505,6 +1649,7 @@ div {
   transition: 0.2s;
 }
 .switch__slider::before {
+  border-radius: 50%;
   background: #f7f7f7;
   border: 1px solid #aaa;
   bottom: -5px;
@@ -1538,10 +1683,10 @@ div {
 
 .table {
   border-collapse: collapse;
-  width: 100%;
+  border-color: #dee2e6;
   color: #212529;
   padding: 0.5rem;
-  border-color: #dee2e6;
+  width: 100%;
 }
 .table__striped tbody tr:nth-child(odd) {
   background-color: #f2f2f2;
@@ -1645,9 +1790,9 @@ div {
 }
 .table td,
 .table th {
-  padding: 0.5rem;
   background: transparent;
   border-bottom: 1px solid #dee2e6;
+  padding: 0.5rem;
   text-align: -webkit-match-parent;
 }
 
