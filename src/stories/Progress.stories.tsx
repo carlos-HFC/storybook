@@ -1,4 +1,3 @@
-import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 
 import { Progress } from '../components'
@@ -20,7 +19,7 @@ const Template: Story<T.ProgressProps> = (args) => <Progress {...args} />
 
 export const Default = Template.bind({});
 
-export const Variants = (args) => (
+export const Variants = ({ ...args }) => (
   ["success", "danger", "warning", "purple", "navy", "dark"].map((variant, i) => (
     <Template key={i} {...args} variant={variant as T.ProgressProps['variant']} width={(i + 1) * 10} style={{ marginBottom: ".5rem" }} />
   ))
