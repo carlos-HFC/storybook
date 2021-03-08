@@ -84,3 +84,11 @@ export interface LoaderProps extends Color {
   className?: string
   style?: CSSProperties
 }
+
+export interface ModalProps extends HTMLAttributes<HTMLDivElement> {
+  open?: boolean
+  onHide?: () => void
+  children?: ReactNode
+  centered?: boolean
+  scrollable?: boolean
+}
