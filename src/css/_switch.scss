@@ -5,7 +5,7 @@
   width: 50px;
 
   &__slider {
-    @extend .radius__30;
+    @include radius(30px);
     background: #fff;
     border: 1px solid #aaa;
     bottom: 0;
@@ -17,7 +17,7 @@
     transition: 0.2s;
 
     &::before {
-      @extend .radius__50;
+      @include radius(50%);
       background: #f7f7f7;
       border: 1px solid #aaa;
       bottom: -5px;

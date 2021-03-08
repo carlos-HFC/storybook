@@ -1,5 +1,5 @@
 .loader {
-  @extend .radius__50;
+  @include radius(50%);
   animation: 1s infinite linear spinner;
   border: 0.25rem solid map-get($colors, dark);
   border-right-color: transparent !important;

@@ -1,5 +1,5 @@
 .progress {
-  @extend .radius__16;
+  @include radius(16px);
   display: flex;
   height: 1.5rem;
   overflow: hidden;
@@ -8,7 +8,7 @@
   width: 100%;
 
   &__bar {
-    @extend .radius__16;
+    @include radius(16px);
     align-items: center;
     background-color: lighten(map-get($colors, dark), 10);
     color: #fff;

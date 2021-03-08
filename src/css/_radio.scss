@@ -32,11 +32,11 @@
     }
 
     &[type="radio"] {
-      @extend .radius__50;
+      @include radius(50%);
     }
 
     &[type="checkbox"] {
-      @extend .radius__4;
+      @include radius(4px);
     }
   }
 

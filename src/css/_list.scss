@@ -1,5 +1,5 @@
 .list {
-  @extend .radius__4;
+  @include radius(4px);
   display: flex;
   flex-direction: column;
   margin-bottom: 0;
@@ -27,7 +27,7 @@
   }
 
   &__borderless {
-    border-radius: 0;
+    @include radius(0);
 
     & > .list__item {
       border-width: 0 0 1px;
