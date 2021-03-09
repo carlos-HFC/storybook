@@ -4,6 +4,10 @@ type Color = {
   variant?: "primary" | "secondary" | "success" | "danger" | "warning" | "purple" | "navy" | "dark"
 }
 
+type Size = {
+  size?: 'small' | 'normal' | 'large'
+}
+
 interface Validation {
   validation?: 'valid' | 'invalid' | null
   validationText?: ReactNode
@@ -11,13 +15,13 @@ interface Validation {
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: Color['variant'] | "outline-primary" | "outline-secondary" | "outline-success" | "outline-danger" | "outline-warning" | "outline-purple" | "outline-navy"
-  size?: 'small' | 'medium' | 'large'
+  size?: Size['size']
   label: ReactNode
   width?: "auto" | "block"
 }
 
 export interface InputProps extends InputHTMLAttributes<HTMLInputElement>, Validation {
-  variant?: 'small' | 'normal' | 'large'
+  variant?: Size['size']
   password?: boolean
   type?: 'text' | 'password' | 'email' | 'url' | 'date' | 'datetime-local' | 'time' | 'week' | 'tel' | 'search' | 'month' | 'number'
 }
@@ -47,11 +51,11 @@ export interface FormControlProps extends InputProps, SelectProps {
 }
 
 export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement>, Validation {
-  variant?: 'small' | 'normal' | 'large'
+  variant?: Size['size']
 }
 
 export interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement>, Validation {
-  variant?: 'small' | 'normal' | 'large'
+  variant?: Size['size']
 }
 
 export interface TableProps extends TableHTMLAttributes<HTMLTableElement>, Color {
@@ -91,4 +95,5 @@ export interface ModalProps extends HTMLAttributes<HTMLDivElement> {
   children?: ReactNode
   centered?: boolean
   scrollable?: boolean
+  size?: Size['size'] | 'xtra'
 }
