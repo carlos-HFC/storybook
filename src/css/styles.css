@@ -703,7 +703,7 @@ div {
   padding: calc(1rem - 2px) calc(1rem + 2px);
 }
 
-.btn__medium {
+.btn__normal {
   font-size: calc(0.875rem + 2px);
   padding: calc(0.875rem - 2px) calc(0.875rem + 2px);
 }
@@ -1321,74 +1321,58 @@ div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin: 0.5rem;
+  margin: 1.5rem auto;
+  opacity: 0;
   pointer-events: none;
   position: relative;
+  -webkit-transform: translateY(-200px);
+      -ms-transform: translateY(-200px);
+          transform: translateY(-200px);
   width: auto;
-}
-.modal__dialog-centered {
-  min-height: calc(100% - 3rem);
-}
-.modal__dialog-scrollable {
-  height: calc(100% - 3rem);
 }
 @media screen and (min-width: 576px) {
   .modal__dialog {
-    margin: 1.5rem auto;
     max-width: 500px;
   }
 }
-.modal__dialog:not(.fadein) {
-  -webkit-transform: none;
-      -ms-transform: none;
-          transform: none;
-  -webkit-transition: -webkit-transform 0.3s;
-  transition: -webkit-transform 0.3s;
-  -o-transition: transform 0.3s;
-  transition: transform 0.3s;
-  transition: transform 0.3s, -webkit-transform 0.3s;
+.modal__dialog.open {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-transition: opacity 0.3s, -webkit-transform 0.7s;
+  transition: opacity 0.3s, -webkit-transform 0.7s;
+  -o-transition: opacity 0.3s, transform 0.7s;
+  transition: opacity 0.3s, transform 0.7s;
+  transition: opacity 0.3s, transform 0.7s, -webkit-transform 0.7s;
 }
-.modal__dialog.fadein {
+.modal__dialog.close {
   opacity: 0;
   -webkit-transform: translateY(-200px);
       -ms-transform: translateY(-200px);
           transform: translateY(-200px);
-  -webkit-transition: opacity 0.3s;
-  -o-transition: opacity 0.3s;
-  transition: opacity 0.3s;
+  -webkit-transition: opacity 0.7s, -webkit-transform 0.45s;
+  transition: opacity 0.7s, -webkit-transform 0.45s;
+  -o-transition: opacity 0.7s, transform 0.45s;
+  transition: opacity 0.7s, transform 0.45s;
+  transition: opacity 0.7s, transform 0.45s, -webkit-transform 0.45s;
 }
-.modal__dialog.fadein.modal__dialog-centered {
-  -webkit-transform: translateY(-400px);
-      -ms-transform: translateY(-400px);
-          transform: translateY(-400px);
-  -webkit-transition: -webkit-transform 0.5s;
-  transition: -webkit-transform 0.5s;
-  -o-transition: transform 0.5s;
-  transition: transform 0.5s;
-  transition: transform 0.5s, -webkit-transform 0.5s;
+.modal__dialog-centered {
+  min-height: calc(100% - 3rem);
+  -webkit-transform: translateY(-425px);
+      -ms-transform: translateY(-425px);
+          transform: translateY(-425px);
 }
-.modal__dialog.fadeout {
-  -webkit-transform: translateY(-200px);
-      -ms-transform: translateY(-200px);
-          transform: translateY(-200px);
-  -webkit-transition: -webkit-transform 0.3s;
-  transition: -webkit-transform 0.3s;
-  -o-transition: transform 0.3s;
-  transition: transform 0.3s;
-  transition: transform 0.3s, -webkit-transform 0.3s;
+.modal__dialog-centered.close {
+  -webkit-transform: translateY(-425px);
+      -ms-transform: translateY(-425px);
+          transform: translateY(-425px);
 }
-.modal__dialog.fadeout.modal__dialog-centered {
-  -webkit-transform: translateY(-400px);
-      -ms-transform: translateY(-400px);
-          transform: translateY(-400px);
-  -webkit-transition: -webkit-transform 0.5s;
-  transition: -webkit-transform 0.5s;
-  -o-transition: transform 0.5s;
-  transition: transform 0.5s;
-  transition: transform 0.5s, -webkit-transform 0.5s;
+.modal__dialog-scrollable {
+  height: calc(100% - 3rem);
 }
 .modal__content {
-  border-radius: 4px;
+  border-radius: 5px;
   background: #fff;
   background-clip: padding-box;
   border: 1px solid rgba(33, 37, 41, 0.3);
@@ -1414,8 +1398,6 @@ div {
       -ms-flex-align: center;
           align-items: center;
   border-bottom: 1px solid rgba(33, 37, 41, 0.2);
-  border-top-left-radius: calc(0.25rem - 1px);
-  border-top-right-radius: calc(0.25rem - 1px);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1441,8 +1423,6 @@ div {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border-bottom-left-radius: calc(0.25rem - 1px);
-  border-bottom-right-radius: calc(0.25rem - 1px);
   border-top: 1px solid rgba(33, 37, 41, 0.2);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1453,6 +1433,30 @@ div {
       -ms-flex-pack: end;
           justify-content: flex-end;
   padding: 0.75rem;
+}
+
+@media screen and (min-width: 1200px) {
+  .modal__dialog-xtra {
+    max-width: 1100px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .modal__dialog-large {
+    max-width: 800px;
+  }
+}
+
+@media screen and (min-width: 576px) {
+  .modal__dialog-normal {
+    max-width: 500px;
+  }
+}
+
+@media screen and (min-width: 576px) {
+  .modal__dialog-small {
+    max-width: 300px;
+  }
 }
 
 .progress {
