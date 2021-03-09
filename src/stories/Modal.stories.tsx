@@ -32,9 +32,9 @@ export const WithHeader = ({ ...args }) => (
     <Modal.Header btClose={args.btClose}>
       HEADER
     </Modal.Header>
-    <div className="modal__body">
+    <Modal.Body>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa at ullam, impedit sit repudiandae esse doloribus. Eaque ab reprehenderit iure ut dolorum enim quia hic, vel ratione atque molestias consectetur.
-    </div>
+    </Modal.Body>
   </Template>
 )
 WithHeader.args = {
@@ -47,33 +47,9 @@ export const WithFooter = ({ ...args }) => (
     <Modal.Header btClose={args.btClose}>
       HEADER
     </Modal.Header>
-    <div className="modal__body">
+    <Modal.Body>
       Lorem ipsum dolor, sit amet consectetur adipisicing elit. A ut optio, vitae, totam quo, dignissimos incidunt reprehenderit nostrum laboriosam quod labore! Doloremque saepe quibusdam facilis illum magnam voluptate repellat voluptatem?
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero veritatis consectetur est delectus nostrum, reprehenderit quod, aspernatur at architecto facere aliquam eligendi distinctio vitae repudiandae numquam dignissimos expedita laudantium maiores.
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero veritatis consectetur est delectus nostrum, reprehenderit quod, aspernatur at architecto facere aliquam eligendi distinctio vitae repudiandae numquam dignissimos expedita laudantium maiores.
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero veritatis consectetur est delectus nostrum, reprehenderit quod, aspernatur at architecto facere aliquam eligendi distinctio vitae repudiandae numquam dignissimos expedita laudantium maiores.
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero veritatis consectetur est delectus nostrum, reprehenderit quod, aspernatur at architecto facere aliquam eligendi distinctio vitae repudiandae numquam dignissimos expedita laudantium maiores.
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. A ut optio, vitae, totam quo, dignissimos incidunt reprehenderit nostrum laboriosam quod labore! Doloremque saepe quibusdam facilis illum magnam voluptate repellat voluptatem?
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero veritatis consectetur est delectus nostrum, reprehenderit quod, aspernatur at architecto facere aliquam eligendi distinctio vitae repudiandae numquam dignissimos expedita laudantium maiores.
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero veritatis consectetur est delectus nostrum, reprehenderit quod, aspernatur at architecto facere aliquam eligendi distinctio vitae repudiandae numquam dignissimos expedita laudantium maiores.
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero veritatis consectetur est delectus nostrum, reprehenderit quod, aspernatur at architecto facere aliquam eligendi distinctio vitae repudiandae numquam dignissimos expedita laudantium maiores.
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero veritatis consectetur est delectus nostrum, reprehenderit quod, aspernatur at architecto facere aliquam eligendi distinctio vitae repudiandae numquam dignissimos expedita laudantium maiores.
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. A ut optio, vitae, totam quo, dignissimos incidunt reprehenderit nostrum laboriosam quod labore! Doloremque saepe quibusdam facilis illum magnam voluptate repellat voluptatem?
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero veritatis consectetur est delectus nostrum, reprehenderit quod, aspernatur at architecto facere aliquam eligendi distinctio vitae repudiandae numquam dignissimos expedita laudantium maiores.
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero veritatis consectetur est delectus nostrum, reprehenderit quod, aspernatur at architecto facere aliquam eligendi distinctio vitae repudiandae numquam dignissimos expedita laudantium maiores.
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero veritatis consectetur est delectus nostrum, reprehenderit quod, aspernatur at architecto facere aliquam eligendi distinctio vitae repudiandae numquam dignissimos expedita laudantium maiores.
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero veritatis consectetur est delectus nostrum, reprehenderit quod, aspernatur at architecto facere aliquam eligendi distinctio vitae repudiandae numquam dignissimos expedita laudantium maiores.
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. A ut optio, vitae, totam quo, dignissimos incidunt reprehenderit nostrum laboriosam quod labore! Doloremque saepe quibusdam facilis illum magnam voluptate repellat voluptatem?
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero veritatis consectetur est delectus nostrum, reprehenderit quod, aspernatur at architecto facere aliquam eligendi distinctio vitae repudiandae numquam dignissimos expedita laudantium maiores.
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero veritatis consectetur est delectus nostrum, reprehenderit quod, aspernatur at architecto facere aliquam eligendi distinctio vitae repudiandae numquam dignissimos expedita laudantium maiores.
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero veritatis consectetur est delectus nostrum, reprehenderit quod, aspernatur at architecto facere aliquam eligendi distinctio vitae repudiandae numquam dignissimos expedita laudantium maiores.
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero veritatis consectetur est delectus nostrum, reprehenderit quod, aspernatur at architecto facere aliquam eligendi distinctio vitae repudiandae numquam dignissimos expedita laudantium maiores.
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. A ut optio, vitae, totam quo, dignissimos incidunt reprehenderit nostrum laboriosam quod labore! Doloremque saepe quibusdam facilis illum magnam voluptate repellat voluptatem?
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero veritatis consectetur est delectus nostrum, reprehenderit quod, aspernatur at architecto facere aliquam eligendi distinctio vitae repudiandae numquam dignissimos expedita laudantium maiores.
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero veritatis consectetur est delectus nostrum, reprehenderit quod, aspernatur at architecto facere aliquam eligendi distinctio vitae repudiandae numquam dignissimos expedita laudantium maiores.
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero veritatis consectetur est delectus nostrum, reprehenderit quod, aspernatur at architecto facere aliquam eligendi distinctio vitae repudiandae numquam dignissimos expedita laudantium maiores.
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero veritatis consectetur est delectus nostrum, reprehenderit quod, aspernatur at architecto facere aliquam eligendi distinctio vitae repudiandae numquam dignissimos expedita laudantium maiores.
-    </div>
+    </Modal.Body>
     <Modal.Footer>
       FOOTER
     </Modal.Footer>
@@ -82,4 +58,32 @@ export const WithFooter = ({ ...args }) => (
 WithFooter.args = {
   open: true,
   btClose: false
+}
+
+export const Centered = ({ ...args }) => (
+  <Template {...args}>
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. A ut optio, vitae, totam quo, dignissimos incidunt reprehenderit nostrum laboriosam quod labore! Doloremque saepe quibusdam facilis illum magnam voluptate repellat voluptatem?
+  </Template>
+)
+Centered.args = {
+  open: true,
+  btClose: false,
+  centered: true,
+  scrollable: false
+}
+
+export const Scrollable = ({ ...args }) => (
+  <Template {...args}>
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. A ut optio, vitae, totam quo, dignissimos incidunt reprehenderit nostrum laboriosam quod labore! Doloremque saepe quibusdam facilis illum magnam voluptate repellat voluptatem?
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. A ut optio, vitae, totam quo, dignissimos incidunt reprehenderit nostrum laboriosam quod labore! Doloremque saepe quibusdam facilis illum magnam voluptate repellat voluptatem?
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. A ut optio, vitae, totam quo, dignissimos incidunt reprehenderit nostrum laboriosam quod labore! Doloremque saepe quibusdam facilis illum magnam voluptate repellat voluptatem?
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. A ut optio, vitae, totam quo, dignissimos incidunt reprehenderit nostrum laboriosam quod labore! Doloremque saepe quibusdam facilis illum magnam voluptate repellat voluptatem?
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. A ut optio, vitae, totam quo, dignissimos incidunt reprehenderit nostrum laboriosam quod labore! Doloremque saepe quibusdam facilis illum magnam voluptate repellat voluptatem?
+  </Template>
+)
+Scrollable.args = {
+  open: true,
+  btClose: false,
+  centered: false,
+  scrollable: true,
 }
