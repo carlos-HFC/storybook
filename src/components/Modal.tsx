@@ -8,20 +8,21 @@ const ModalContext = createContext({} as ModalContextProps)
 
 type TFooter = FC<HTMLAttributes<HTMLElement>>
 type THeader = FC<HTMLAttributes<HTMLElement> & { btClose?: boolean }>
-type TModal = FC<ModalContextProps> & { Header: THeader, Footer: TFooter }
+type TBody = FC<HTMLAttributes<HTMLDivElement>>
+type TModal = FC<ModalContextProps> & { Header: THeader, Footer: TFooter, Body: TBody }
 
-const Footer: TFooter = ({ children, ...props }) => {
+const Footer: TFooter = ({ ...props }) => {
   let classes = 'modal__footer'
   classes += props.className ? ` ${props.className}` : ""
 
   return (
     <footer className={classes}>
-      {children}
+      {props.children}
     </footer>
   )
 }
 
-const Header: THeader = ({ btClose, children, ...props }) => {
+const Header: THeader = ({ btClose, ...props }) => {
   const { onHide } = useContext(ModalContext)
 
   let classes = 'modal__header'
@@ -29,7 +30,7 @@ const Header: THeader = ({ btClose, children, ...props }) => {
 
   return (
     <header className={classes}>
-      {children}
+      {props.children}
       {btClose && (
         <button className="btn__close" onClick={onHide}>
           <FaTimes />
@@ -39,47 +40,58 @@ const Header: THeader = ({ btClose, children, ...props }) => {
   )
 }
 
-const Modal: TModal = ({ open, onHide, children, scrollable, centered, ...props }) => {
-  let initialDialog = 'modal__dialog fadein'
-  initialDialog += scrollable ? ' modal__dialog-scrollable' : ''
-  initialDialog += centered ? ' modal__dialog-centered' : ''
-
-  const [dialog, setDialog] = useState(initialDialog)
-
-  let classes = 'modal'
+const Body: TBody = ({ ...props }) => {
+  let classes = "modal__body"
   classes += props.className ? ` ${props.className}` : ""
+
+  return (
+    <div className={classes}>
+      {props.children}
+    </div>
+  )
+}
+
+const Modal: TModal = ({ open, onHide, size = 'normal', scrollable, centered, ...props }) => {
+  const [dialog, setDialog] = useState("modal__dialog")
+
+  useEffect(() => {
+    if (centered) setDialog(dialog => `${dialog} modal__dialog-centered`)
+    if (scrollable) setDialog(dialog => `${dialog} modal__dialog-scrollable`)
+    if (size) setDialog(dialog => `${dialog} modal__dialog-${size}`)
+
+    if (open) {
+      setTimeout(() => {
+        setDialog(dialog => `${dialog} open`)
+      }, 100)
+    }
+  }, [open, centered, size, scrollable])
 
   useEffect(() => {
     document.addEventListener("keydown", (e: KeyboardEvent) => {
       if (e.keyCode === 27) {
-        closeModal()
+        return closeModal()
       }
     })
   }, [onHide])
 
-  useEffect(() => {
-    setTimeout(() => {
-      if (open) setDialog(dialog.replace('fadein', ''))
-    }, 200)
-  }, [open, dialog])
-
   function closeModal() {
-    setDialog(`${dialog} fadeout`)
-
+    setDialog(dialog => dialog.replace('open', 'close'))
     setTimeout(() => {
-      setDialog(initialDialog)
       onHide && onHide()
-    }, centered ? 400 : 200);
+      setTimeout(() => {
+        setDialog("modal__dialog")
+      }, 250);
+    }, 500);
   }
 
   return (
-    <ModalContext.Provider value={{ open, onHide: closeModal }}>
-      <div className={classes} onClick={onHide && closeModal} style={{ display: open ? 'block' : 'none' }} {...props}>
+    <ModalContext.Provider value={{ onHide: closeModal }}>
+      <div className="modal" onClick={closeModal} style={{ display: open ? 'block' : 'none' }} {...props}>
         <div className={dialog} onClick={e => e.stopPropagation()}>
           <div className="modal__content" onClick={e => e.stopPropagation()}>
-            {Children.count(children) === 1
-              ? <div className="modal__body">{children}</div>
-              : children
+            {Children.count(props.children) === 1
+              ? <Body>{props.children}</Body>
+              : props.children
             }
           </div>
         </div>
@@ -89,10 +101,12 @@ const Modal: TModal = ({ open, onHide, children, scrollable, centered, ...props 
 }
 
 Modal.Header = Header
+Modal.Body = Body
 Modal.Footer = Footer
 
 export {
   Footer as ModalFooter,
   Header as ModalHeader,
+  Body as ModalBody,
   Modal,
 }
