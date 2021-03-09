@@ -1,3 +1,10 @@
+$sizes: (
+  xtra: 1100px,
+  large: 800px,
+  normal: 500px,
+  small: 300px,
+);
+
 .modal {
   align-items: center;
   background: rgba(0, 0, 0, 0.2);
@@ -16,53 +23,45 @@
   &__dialog {
     align-items: center;
     display: flex;
-    margin: 0.5rem;
+    margin: 1.5rem auto;
+    opacity: 0;
     pointer-events: none;
     position: relative;
+    transform: translateY(-200px);
     width: auto;
+
+    @media screen and (min-width: 576px) {
+      max-width: 500px;
+    }
+
+    &.open {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.3s, transform 0.7s;
+    }
+
+    &.close {
+      opacity: 0;
+      transform: translateY(-200px);
+      transition: opacity 0.7s, transform 0.45s;
+    }
 
     &-centered {
       min-height: calc(100% - 3rem);
+      transform: translateY(-425px);
+
+      &.close {
+        transform: translateY(-425px);
+      }
     }
 
     &-scrollable {
       height: calc(100% - 3rem);
     }
-
-    @media screen and (min-width: 576px) {
-      margin: 1.5rem auto;
-      max-width: 500px;
-    }
-
-    &:not(.fadein) {
-      transform: none;
-      transition: transform 0.3s;
-    }
-
-    &.fadein {
-      opacity: 0;
-      transform: translateY(-200px);
-      transition: opacity 0.3s;
-
-      &.modal__dialog-centered {
-        transform: translateY(-400px);
-        transition: transform 0.5s;
-      }
-    }
-
-    &.fadeout {
-      transform: translateY(-200px);
-      transition: transform 0.3s;
-
-      &.modal__dialog-centered {
-        transform: translateY(-400px);
-        transition: transform 0.5s;
-      }
-    }
   }
 
   &__content {
-    @include radius(4px);
+    @include radius(5px);
     background: #fff;
     background-clip: padding-box;
     border: 1px solid rgba(map-get($colors, dark), 0.3);
@@ -80,8 +79,6 @@
   &__header {
     align-items: center;
     border-bottom: 1px solid rgba(map-get($colors, dark), 0.2);
-    border-top-left-radius: calc(0.25rem - 1px);
-    border-top-right-radius: calc(0.25rem - 1px);
     display: flex;
     justify-content: space-between;
     padding: 1rem;
@@ -102,12 +99,28 @@
 
   &__footer {
     align-items: center;
-    border-bottom-left-radius: calc(0.25rem - 1px);
-    border-bottom-right-radius: calc(0.25rem - 1px);
     border-top: 1px solid rgba(map-get($colors, dark), 0.2);
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-end;
     padding: 0.75rem;
+  }
+}
+
+@each $key, $size in $sizes {
+  .modal__dialog-#{$key} {
+    @if ($key == "large") {
+      @media screen and (min-width: 992px) {
+        max-width: $size;
+      }
+    } @else if ($key == "xtra") {
+      @media screen and (min-width: 1200px) {
+        max-width: $size;
+      }
+    } @else {
+      @media screen and (min-width: 576px) {
+        max-width: $size;
+      }
+    }
   }
 }
