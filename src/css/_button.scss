@@ -22,12 +22,13 @@ $sizes: (
 );
 
 .btn {
-  @include radius(8px);
+  @include radius(20px);
   cursor: pointer;
   display: inline-block;
   font-weight: 700;
   line-height: 1;
   outline: none;
+  padding: calc(0.875rem - 2px) calc(0.875rem + 2px);
   transition: 0.3s;
 
   &:disabled,
@@ -87,6 +88,7 @@ $sizes: (
 
 @each $key, $size in $sizes {
   .btn__#{$key} {
+    @include radius(#{$size * 1.5});
     font-size: calc(#{$size} + 2px);
     padding: calc(#{$size} - 2px) calc(#{$size} + 2px);
   }
