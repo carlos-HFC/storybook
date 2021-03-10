@@ -36,6 +36,7 @@ $sizes: (large 1rem 3.125rem, normal 0.75rem 2.375rem, small 0.5rem 1.625rem);
 
 @each $key, $size, $width in $sizes {
   .input__#{$key} {
+    @include radius(toFixed($size / 3));
     font-size: $size + 0.25rem;
     height: calc(#{$size + 0.25rem} * 2.5);
     padding: calc(#{$size} / 2) $size;
@@ -46,8 +47,10 @@ $sizes: (large 1rem 3.125rem, normal 0.75rem 2.375rem, small 0.5rem 1.625rem);
     }
 
     & ~ button {
+      border-bottom-right-radius: toFixed($size / 3) !important;
+      border-top-right-radius: toFixed($size / 3) !important;
       font-size: calc(#{$size + 0.25rem} - 2px);
-      padding: calc(#{$size} / 2) $size;
+      padding: calc(#{$size} / 2) $size + 0.1;
     }
   }
 }

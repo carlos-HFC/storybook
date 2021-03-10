@@ -21,6 +21,7 @@ $sizes: (large 1rem 3.125rem, normal 0.75rem 2.375rem, small 0.5rem 1.625rem);
 
   @each $key, $size, $width in $sizes {
     &__#{$key} {
+      @include radius(toFixed($size / 3));
       font-size: $size + 0.25rem;
       height: calc(#{$size + 0.25rem} * 2.5);
       padding: calc(#{$size} / 2) $size;

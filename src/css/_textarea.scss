@@ -12,6 +12,7 @@ $sizes: (
 
 @each $key, $size in $sizes {
   .textarea__#{$key} {
+    @include radius(toFixed($size / 3));
     font-size: $size + 0.25rem;
     min-height: calc(#{$size} * 6 + 1rem);
     padding: calc(#{$size} / 2) $size;
