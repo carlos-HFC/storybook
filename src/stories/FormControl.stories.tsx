@@ -27,8 +27,8 @@ export const Controls = () => (
   <>
     <Template label="Nome" />
     <Template label="Password" type="password" password />
-    <Template label="Select" select />
-    <Template label="Textarea" textarea />
+    <Template label="Select" field="select" />
+    <Template label="Textarea" field="textarea" />
   </>
 )
 
@@ -40,7 +40,7 @@ Default.args = {
 export const ControlSelect = Template.bind({});
 ControlSelect.args = {
   label: "Select",
-  select: true,
+  field: "select",
   children: (
     <>
       <option value="1">One</option>
@@ -58,7 +58,7 @@ ControlSelect.argTypes = {
 export const ControlMultipleSelect = Template.bind({});
 ControlMultipleSelect.args = {
   label: "Select",
-  select: true,
+  field: "select",
   multiple: true,
   children: (
     <>
@@ -77,5 +77,5 @@ ControlMultipleSelect.argTypes = {
 export const ControlTextarea = Template.bind({});
 ControlTextarea.args = {
   label: "Textarea",
-  textarea: true,
+  field: "textarea",
 };
