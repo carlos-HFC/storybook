@@ -25,11 +25,16 @@ const Template: Story<T.ListProps> = (args) => (
 )
 
 export const Variants = () => (
-  ["primary", "secondary", "success", "danger", "warning", "purple", "navy", "dark"].map(variant => (
-    <ListGroup key={variant} variant={variant as T.ListProps['variant']}>
-      <li className="list__item">Item com a classe {variant}</li>
+  <>
+    <ListGroup>
+      <li className="list__item">Item default</li>
     </ListGroup>
-  ))
+    {["primary", "secondary", "success", "danger", "warning", "purple", "navy", "dark"].map(variant => (
+      <ListGroup key={variant} variant={variant as T.ListProps['variant']}>
+        <li className="list__item">Item com a classe {variant}</li>
+      </ListGroup>
+    ))}
+  </>
 )
 
 export const Default = Template.bind({})
