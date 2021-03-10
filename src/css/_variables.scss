@@ -22,6 +22,16 @@ $validation: (
   @return $value / 16 * 1rem;
 }
 
+@function toFixed($number, $decimal: 2) {
+  $n: 1;
+
+  @for $i from 1 through $decimal {
+    $n: $n * 10;
+  }
+
+  @return round($number * $n) / $n;
+}
+
 @each $key, $color in $colors {
   .bg__#{$key} {
     background-color: $color !important;
@@ -50,7 +60,7 @@ $validation: (
     border-color: $valid !important;
 
     &:focus {
-      box-shadow: 0 0 0 3px lighten($valid, 45) !important;
+      box-shadow: 0 0 0 3px lighten($valid, 40) !important;
     }
   }
 }
@@ -83,7 +93,7 @@ $validation: (
   }
 
   &:focus {
-    box-shadow: 0 0 0 3px #ddd;
+    box-shadow: 0 0 0 3px lighten(map-get($colors, primary), 20);
     color: map-get($colors, dark);
     outline: 0;
     transition: 0.2s;
