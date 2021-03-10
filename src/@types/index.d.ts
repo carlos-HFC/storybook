@@ -44,10 +44,9 @@ export interface FloatingProps extends Omit<InputProps, 'password'> {
   label: string
 }
 
-export interface FormControlProps extends InputProps, SelectProps {
+export interface FormControlProps extends InputProps, SelectProps, TextareaProps {
   label: string
-  select?: boolean
-  textarea?: boolean
+  field?: 'input' | 'select' | 'textarea'
 }
 
 export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement>, Validation {
@@ -96,4 +95,9 @@ export interface ModalProps extends HTMLAttributes<HTMLDivElement> {
   centered?: boolean
   scrollable?: boolean
   size?: Size['size'] | 'xtra'
+}
+
+export interface PaginationProps extends HTMLAttributes<HTMLElement> {
+  children: ReactNode
+  size?: Size['size']
 }
