@@ -107,8 +107,8 @@
   border-color: #1d6f42 !important;
 }
 .valid:focus {
-  -webkit-box-shadow: 0 0 0 3px #90e2b5 !important;
-          box-shadow: 0 0 0 3px #90e2b5 !important;
+  -webkit-box-shadow: 0 0 0 3px #7bdda7 !important;
+          box-shadow: 0 0 0 3px #7bdda7 !important;
 }
 
 .invalid__text {
@@ -124,8 +124,8 @@
   border-color: #c0392b !important;
 }
 .invalid:focus {
-  -webkit-box-shadow: 0 0 0 3px #f7ddda !important;
-          box-shadow: 0 0 0 3px #f7ddda !important;
+  -webkit-box-shadow: 0 0 0 3px #f2c9c5 !important;
+          box-shadow: 0 0 0 3px #f2c9c5 !important;
 }
 
 .input, .select, .textarea {
@@ -157,8 +157,8 @@
   padding-left: 2.25rem;
 }
 .input:focus, .select:focus, .textarea:focus {
-  -webkit-box-shadow: 0 0 0 3px #ddd;
-          box-shadow: 0 0 0 3px #ddd;
+  -webkit-box-shadow: 0 0 0 3px #85d7ef;
+          box-shadow: 0 0 0 3px #85d7ef;
   color: #212529;
   outline: 0;
   -webkit-transition: 0.2s;
@@ -340,12 +340,13 @@ div {
 }
 
 .btn, .input__group button {
-  border-radius: 8px;
+  border-radius: 20px;
   cursor: pointer;
   display: inline-block;
   font-weight: 700;
   line-height: 1;
   outline: none;
+  padding: calc(0.875rem - 2px) calc(0.875rem + 2px);
   -webkit-transition: 0.3s;
   -o-transition: 0.3s;
   transition: 0.3s;
@@ -699,16 +700,19 @@ div {
 }
 
 .btn__large {
+  border-radius: 1.5rem;
   font-size: calc(1rem + 2px);
   padding: calc(1rem - 2px) calc(1rem + 2px);
 }
 
 .btn__normal {
+  border-radius: 1.3125rem;
   font-size: calc(0.875rem + 2px);
   padding: calc(0.875rem - 2px) calc(0.875rem + 2px);
 }
 
 .btn__small {
+  border-radius: 1.125rem;
   font-size: calc(0.75rem + 2px);
   padding: calc(0.75rem - 2px) calc(0.75rem + 2px);
 }
@@ -790,6 +794,7 @@ div {
   transition: 0.3s;
 }
 .floating__large {
+  border-radius: 0.33rem;
   height: 5rem;
 }
 .floating__large > .input {
@@ -842,6 +847,7 @@ div {
   padding: 1.55rem calc(1.55rem - 0.25rem) !important;
 }
 .floating__normal {
+  border-radius: 0.25rem;
   height: 4rem;
 }
 .floating__normal > .input {
@@ -894,6 +900,7 @@ div {
   padding: 1.25rem calc(1.25rem - 0.25rem) !important;
 }
 .floating__small {
+  border-radius: 0.17rem;
   height: 3rem;
 }
 .floating__small > .input {
@@ -944,6 +951,9 @@ div {
 .floating__small > label {
   font-size: 0.75rem !important;
   padding: 0.95rem calc(0.95rem - 0.25rem) !important;
+}
+.floating .input {
+  border: 0;
 }
 .floating .input::-webkit-input-placeholder {
   opacity: 0;
@@ -1052,11 +1062,14 @@ div {
 .form__control__large .input,
 .form__control__large .select,
 .form__control__large .textarea {
+  border-radius: 0.33rem;
   font-size: 1.25rem;
   height: calc(1.25rem * 2.5);
   padding: calc(1rem / 2) 1rem;
 }
 .form__control__large ~ button {
+  border-bottom-right-radius: 0.33rem !important;
+  border-top-right-radius: 0.33rem !important;
   font-size: calc(1.25rem - 2px);
   padding: calc(1rem / 2) 1rem;
 }
@@ -1069,11 +1082,14 @@ div {
 .form__control__normal .input,
 .form__control__normal .select,
 .form__control__normal .textarea {
+  border-radius: 0.25rem;
   font-size: 1rem;
   height: calc(1rem * 2.5);
   padding: calc(0.75rem / 2) 0.75rem;
 }
 .form__control__normal ~ button {
+  border-bottom-right-radius: 0.25rem !important;
+  border-top-right-radius: 0.25rem !important;
   font-size: calc(1rem - 2px);
   padding: calc(0.75rem / 2) 0.75rem;
 }
@@ -1086,11 +1102,14 @@ div {
 .form__control__small .input,
 .form__control__small .select,
 .form__control__small .textarea {
+  border-radius: 0.17rem;
   font-size: 0.75rem;
   height: calc(0.75rem * 2.5);
   padding: calc(0.5rem / 2) 0.5rem;
 }
 .form__control__small ~ button {
+  border-bottom-right-radius: 0.17rem !important;
+  border-top-right-radius: 0.17rem !important;
   font-size: calc(0.75rem - 2px);
   padding: calc(0.5rem / 2) 0.5rem;
 }
@@ -1129,6 +1148,7 @@ div {
 }
 
 .input__large, .floating__large > .input {
+  border-radius: 0.33rem;
   font-size: 1.25rem;
   height: calc(1.25rem * 2.5);
   padding: calc(1rem / 2) 1rem;
@@ -1138,11 +1158,14 @@ div {
   padding-left: 2.5rem;
 }
 .input__large ~ button, .floating__large > .input ~ button {
+  border-bottom-right-radius: 0.33rem !important;
+  border-top-right-radius: 0.33rem !important;
   font-size: calc(1.25rem - 2px);
-  padding: calc(1rem / 2) 1rem;
+  padding: calc(1rem / 2) 1.1rem;
 }
 
 .input__normal, .floating__normal > .input {
+  border-radius: 0.25rem;
   font-size: 1rem;
   height: calc(1rem * 2.5);
   padding: calc(0.75rem / 2) 0.75rem;
@@ -1152,11 +1175,14 @@ div {
   padding-left: 2.25rem;
 }
 .input__normal ~ button, .floating__normal > .input ~ button {
+  border-bottom-right-radius: 0.25rem !important;
+  border-top-right-radius: 0.25rem !important;
   font-size: calc(1rem - 2px);
-  padding: calc(0.75rem / 2) 0.75rem;
+  padding: calc(0.75rem / 2) 0.85rem;
 }
 
 .input__small, .floating__small > .input {
+  border-radius: 0.17rem;
   font-size: 0.75rem;
   height: calc(0.75rem * 2.5);
   padding: calc(0.5rem / 2) 0.5rem;
@@ -1166,8 +1192,10 @@ div {
   padding-left: 2rem;
 }
 .input__small ~ button, .floating__small > .input ~ button {
+  border-bottom-right-radius: 0.17rem !important;
+  border-top-right-radius: 0.17rem !important;
   font-size: calc(0.75rem - 2px);
-  padding: calc(0.5rem / 2) 0.5rem;
+  padding: calc(0.5rem / 2) 0.6rem;
 }
 
 .list {
@@ -1306,6 +1334,7 @@ div {
   left: 0;
   outline: 0;
   overflow: hidden;
+  overflow-y: auto;
   position: fixed;
   top: 0;
   -webkit-transition: 0.3s;
@@ -1313,6 +1342,14 @@ div {
   transition: 0.3s;
   width: 100%;
   z-index: 100;
+}
+.modal.fade {
+  -webkit-transition: opacity 0.2s linear;
+  -o-transition: opacity 0.2s linear;
+  transition: opacity 0.2s linear;
+}
+.modal.fade:not(.open) {
+  opacity: 0;
 }
 .modal__dialog {
   -webkit-box-align: center;
@@ -1322,12 +1359,8 @@ div {
   display: -ms-flexbox;
   display: flex;
   margin: 1.5rem auto;
-  opacity: 0;
   pointer-events: none;
   position: relative;
-  -webkit-transform: translateY(-200px);
-      -ms-transform: translateY(-200px);
-          transform: translateY(-200px);
   width: auto;
 }
 @media screen and (min-width: 576px) {
@@ -1335,38 +1368,23 @@ div {
     max-width: 500px;
   }
 }
-.modal__dialog.open {
-  opacity: 1;
-  -webkit-transform: translateY(0);
-      -ms-transform: translateY(0);
-          transform: translateY(0);
-  -webkit-transition: opacity 0.3s, -webkit-transform 0.7s;
-  transition: opacity 0.3s, -webkit-transform 0.7s;
-  -o-transition: opacity 0.3s, transform 0.7s;
-  transition: opacity 0.3s, transform 0.7s;
-  transition: opacity 0.3s, transform 0.7s, -webkit-transform 0.7s;
-}
-.modal__dialog.close {
-  opacity: 0;
+.modal.fade .modal__dialog {
   -webkit-transform: translateY(-200px);
       -ms-transform: translateY(-200px);
           transform: translateY(-200px);
-  -webkit-transition: opacity 0.7s, -webkit-transform 0.45s;
-  transition: opacity 0.7s, -webkit-transform 0.45s;
-  -o-transition: opacity 0.7s, transform 0.45s;
-  transition: opacity 0.7s, transform 0.45s;
-  transition: opacity 0.7s, transform 0.45s, -webkit-transform 0.45s;
+  -webkit-transition: -webkit-transform 0.4s ease-out;
+  transition: -webkit-transform 0.4s ease-out;
+  -o-transition: transform 0.4s ease-out;
+  transition: transform 0.4s ease-out;
+  transition: transform 0.4s ease-out, -webkit-transform 0.4s ease-out;
+}
+.modal.open .modal__dialog {
+  -webkit-transform: none;
+      -ms-transform: none;
+          transform: none;
 }
 .modal__dialog-centered {
   min-height: calc(100% - 3rem);
-  -webkit-transform: translateY(-425px);
-      -ms-transform: translateY(-425px);
-          transform: translateY(-425px);
-}
-.modal__dialog-centered.close {
-  -webkit-transform: translateY(-425px);
-      -ms-transform: translateY(-425px);
-          transform: translateY(-425px);
 }
 .modal__dialog-scrollable {
   height: calc(100% - 3rem);
@@ -1457,6 +1475,69 @@ div {
   .modal__dialog-small {
     max-width: 300px;
   }
+}
+
+.pagination {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-left: 0;
+}
+.pagination__item {
+  background: #fff;
+  border: 1px solid #c5cbd0;
+  color: #1caed9;
+  cursor: pointer;
+  display: block;
+  font-size: 1rem;
+  padding: 0.5rem 0.75rem;
+  position: relative;
+  text-decoration: none;
+  -webkit-transition: 0.25s;
+  -o-transition: 0.25s;
+  transition: 0.25s;
+}
+.pagination__item.active {
+  background: #1aa5ce;
+  color: #fff;
+  cursor: default;
+}
+.pagination__item.disabled, .pagination__item:disabled {
+  color: #434b53;
+  cursor: not-allowed;
+}
+.pagination__item:hover:not(.active):not(.disabled) {
+  background: #f2f2f2;
+  color: #1aa5ce;
+  -webkit-transition: 0.25s;
+  -o-transition: 0.25s;
+  transition: 0.25s;
+}
+.pagination__item:not(:first-child) {
+  margin-left: -1px;
+}
+.pagination__item:first-child {
+  border-bottom-left-radius: 0.25rem;
+  border-top-left-radius: 0.25rem;
+}
+.pagination__item:last-child {
+  border-bottom-right-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+}
+
+.pagination__small .pagination__item {
+  font-size: 0.875rem;
+  padding: 0.25rem 0.5rem;
+}
+
+.pagination__normal .pagination__item {
+  font-size: 1rem;
+  padding: 0.5rem 0.75rem;
+}
+
+.pagination__large .pagination__item {
+  font-size: 1.125rem;
+  padding: 0.75rem 1rem;
 }
 
 .progress {
@@ -1617,16 +1698,19 @@ div {
   background: #f9f9f9;
 }
 .select__large {
+  border-radius: 0.33rem;
   font-size: 1.25rem;
   height: calc(1.25rem * 2.5);
   padding: calc(1rem / 2) 1rem;
 }
 .select__normal {
+  border-radius: 0.25rem;
   font-size: 1rem;
   height: calc(1rem * 2.5);
   padding: calc(0.75rem / 2) 0.75rem;
 }
 .select__small {
+  border-radius: 0.17rem;
   font-size: 0.75rem;
   height: calc(0.75rem * 2.5);
   padding: calc(0.5rem / 2) 0.5rem;
@@ -1937,18 +2021,21 @@ div {
 }
 
 .textarea__large {
+  border-radius: 0.33rem;
   font-size: 1.25rem;
   min-height: calc(1rem * 6 + 1rem);
   padding: calc(1rem / 2) 1rem;
 }
 
 .textarea__normal {
+  border-radius: 0.25rem;
   font-size: 1rem;
   min-height: calc(0.75rem * 6 + 1rem);
   padding: calc(0.75rem / 2) 0.75rem;
 }
 
 .textarea__small {
+  border-radius: 0.17rem;
   font-size: 0.75rem;
   min-height: calc(0.5rem * 6 + 1rem);
   padding: calc(0.5rem / 2) 0.5rem;
