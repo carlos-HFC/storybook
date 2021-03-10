@@ -1,6 +1,6 @@
 import { ButtonProps } from '../@types'
 
-export const Button: React.FC<ButtonProps> = ({ variant = 'primary', size = 'medium', label, width = 'auto', ...props }) => {
+export const Button: React.FC<ButtonProps> = ({ variant = 'primary', size = 'normal', label, width = 'auto', ...props }) => {
   let classes = 'btn'
   classes += variant ? ` btn__${variant}` : ''
   classes += size ? ` btn__${size}` : ''
