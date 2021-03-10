@@ -1,4 +1,4 @@
-import { Children, createContext, FC, HTMLAttributes, useContext, useEffect, useState } from 'react'
+import { Children, createContext, FC, HTMLAttributes, useContext, useEffect, useMemo, useState } from 'react'
 import { FaTimes } from 'react-icons/fa'
 import { ModalProps } from '../@types'
 
@@ -51,42 +51,57 @@ const Body: TBody = ({ ...props }) => {
   )
 }
 
-const Modal: TModal = ({ open, onHide, size = 'normal', scrollable, centered, ...props }) => {
+const Modal: TModal = ({ open, onHide, size, scrollable, centered, ...props }) => {
   const [dialog, setDialog] = useState("modal__dialog")
+  const [modal, setModal] = useState("modal")
+
+  useMemo(() => {
+    if (size) setDialog(dialog => `${dialog} modal__dialog-${size}`)
+  }, [size])
+
+  useMemo(() => {
+    if (open) setModal(modal => `${modal} fade`)
+  }, [open])
 
   useEffect(() => {
-    if (centered) setDialog(dialog => `${dialog} modal__dialog-centered`)
-    if (scrollable) setDialog(dialog => `${dialog} modal__dialog-scrollable`)
-    if (size) setDialog(dialog => `${dialog} modal__dialog-${size}`)
 
-    if (open) {
+    if (open && modal.includes('fade')) {
       setTimeout(() => {
-        setDialog(dialog => `${dialog} open`)
-      }, 100)
+        setModal(modal => modal.concat(" open"))
+      }, 200);
     }
-  }, [open, centered, size, scrollable])
+  }, [open, modal])
+
+  useMemo(() => {
+    if (centered) setDialog(dialog => `${dialog} modal__dialog-centered`)
+    if (!centered) setDialog(dialog => dialog.replace('modal__dialog-centered', ''))
+  }, [centered])
+
+  useMemo(() => {
+    if (scrollable) setDialog(dialog => `${dialog} modal__dialog-scrollable`)
+    if (!scrollable) setDialog(dialog => dialog.replace('modal__dialog-scrollable', ''))
+  }, [scrollable])
 
   useEffect(() => {
     document.addEventListener("keydown", (e: KeyboardEvent) => {
       if (e.keyCode === 27) {
-        return closeModal()
+        onHide && onHide()
+        closeModal()
       }
     })
   }, [onHide])
 
   function closeModal() {
-    setDialog(dialog => dialog.replace('open', 'close'))
+    setModal(modal => modal.replace('open', ''))
     setTimeout(() => {
       onHide && onHide()
-      setTimeout(() => {
-        setDialog("modal__dialog")
-      }, 250);
+      setModal("modal")
     }, 500);
   }
 
   return (
     <ModalContext.Provider value={{ onHide: closeModal }}>
-      <div className="modal" onClick={closeModal} style={{ display: open ? 'block' : 'none' }} {...props}>
+      <div className={modal} onClick={onHide && closeModal} style={{ display: open ? 'block' : 'none' }} {...props}>
         <div className={dialog} onClick={e => e.stopPropagation()}>
           <div className="modal__content" onClick={e => e.stopPropagation()}>
             {Children.count(props.children) === 1
