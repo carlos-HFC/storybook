@@ -1,0 +1,58 @@
+$sizes: (small 0.25rem 0.875rem, normal 0.5rem 1rem, large 0.75rem 1.125rem);
+
+.pagination {
+  display: flex;
+  padding-left: 0;
+
+  &__item {
+    background: #fff;
+    border: 1px solid lighten(map-get($colors, dark), 65);
+    color: darken(map-get($colors, primary), 5);
+    cursor: pointer;
+    display: block;
+    font-size: 1rem;
+    padding: 0.5rem 0.75rem;
+    position: relative;
+    text-decoration: none;
+    transition: 0.25s;
+
+    &.active {
+      background: darken(map-get($colors, primary), 7.5);
+      color: #fff;
+      cursor: default;
+    }
+
+    &.disabled {
+      color: lighten(map-get($colors, dark), 15);
+      cursor: not-allowed;
+    }
+
+    &:hover:not(.active):not(.disabled) {
+      background: darken(#fff, 5);
+      color: darken(map-get($colors, primary), 7.5);
+      transition: 0.25s;
+    }
+
+    &:not(:first-child) {
+      margin-left: -1px;
+    }
+
+    &:first-child {
+      border-bottom-left-radius: 0.25rem;
+      border-top-left-radius: 0.25rem;
+    }
+    &:last-child {
+      border-bottom-right-radius: 0.25rem;
+      border-top-right-radius: 0.25rem;
+    }
+  }
+}
+
+@each $key, $size, $font in $sizes {
+  .pagination__#{$key} {
+    .pagination__item {
+      font-size: $font;
+      padding: $size $size + 0.25rem;
+    }
+  }
+}
