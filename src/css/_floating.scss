@@ -45,6 +45,8 @@ $sizes: ("large" 5rem 1.55rem 1.25rem, "normal" 4rem 1.25rem 1rem, "small" 3rem 
 
   .input {
     border: 0;
+    height: auto;
+
     &::placeholder {
       opacity: 0;
     }
