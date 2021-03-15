@@ -60,7 +60,7 @@ $validation: (
     border-color: $valid !important;
 
     &:focus {
-      box-shadow: 0 0 0 3px lighten($valid, 40) !important;
+      box-shadow: 0 0 0 3px transparentize($valid, .5) !important;
     }
   }
 }
@@ -78,10 +78,11 @@ $validation: (
   font-family: "Segoe UI", Helvetica, Arial, sans-serif;
   font-size: 1rem;
   font-weight: 400;
+  height: 1rem * 2.5;
   line-height: 1.5;
   padding: calc(0.75rem / 2) 0.75rem;
   position: relative;
-  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, 0.3s;
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
   width: 100%;
 
   &[type="search"] {
@@ -93,7 +94,7 @@ $validation: (
   }
 
   &:focus {
-    box-shadow: 0 0 0 3px lighten(map-get($colors, primary), 20);
+    box-shadow: 0 0 0 3px transparentize(map-get($colors, primary), .4);
     color: map-get($colors, dark);
     outline: 0;
     transition: 0.2s;
