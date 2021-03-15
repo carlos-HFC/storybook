@@ -7,6 +7,7 @@ $sizes: (large 1rem 3.125rem, normal 0.75rem 2.375rem, small 0.5rem 1.625rem);
   background-position: right 0.75rem center;
   background-size: 16px 12px;
   height: 2.5rem;
+  transition: 0.3s;
 
   &[multiple],
   &[size]:not([size="1"]) {
