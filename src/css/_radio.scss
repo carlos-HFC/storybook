@@ -1,22 +1,22 @@
 .check {
   &__inline {
     align-items: center;
-    display: inline-flex;
+    display: inline-block;
     margin-right: 0.75rem;
-    position: relative;
     margin-bottom: 0.125rem;
+    min-height: 1rem;
+    position: relative;
   }
 
   &__input {
     appearance: none;
     border: 1px solid #bfbfbf;
     height: 1rem;
-    margin-left: 0;
     margin-right: 0.5rem;
-    margin-top: 0;
+    margin-top: 0.25rem;
     outline: none;
-    position: static;
     transition: background-color 0.3s;
+    vertical-align: top;
     width: 1rem;
 
     &:checked {
@@ -41,7 +41,7 @@
   }
 
   &__label {
-    display: inline-block;
+    display: inline;
     margin-bottom: 0;
   }
 }
