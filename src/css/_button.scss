@@ -1,5 +1,6 @@
 $btn-colors: (
   "danger" map-get($colors, danger) #fff,
+  "dark" map-get($colors, dark) #fff,
   "navy" map-get($colors, navy) #fff,
   "primary" map-get($colors, primary) #fff,
   "purple" map-get($colors, purple) #fff,
@@ -7,6 +8,7 @@ $btn-colors: (
   "success" map-get($colors, success) #fff,
   "warning" map-get($colors, warning) #000,
   "outline-danger" map-get($colors, danger) #fff,
+  "outline-dark" map-get($colors, dark) #fff,
   "outline-navy" map-get($colors, navy) #fff,
   "outline-primary" map-get($colors, primary) #fff,
   "outline-purple" map-get($colors, purple) #fff,
@@ -25,6 +27,7 @@ $sizes: (
   @include radius(20px);
   cursor: pointer;
   display: inline-block;
+  font-size: calc(0.875rem + 2px);
   font-weight: 700;
   line-height: 1;
   outline: none;
@@ -63,6 +66,10 @@ $sizes: (
     border: 0.5px solid $color;
     transition: 0.3s;
 
+    &:focus {
+      box-shadow: 0 0 0 4px transparentize($color, 0.3);
+    }
+
     &:hover,
     &:focus {
       background: darken($color, 7.5%);
@@ -79,7 +86,7 @@ $sizes: (
       border-color: darken($color, 12.5%);
       transition: 0.3s;
 
-      @if str-index($key, "-outline") {
+      @if str-index($key, "outline-") {
         color: $text;
       }
     }
